@@ -1,4 +1,5 @@
 {
+  "homepage": "http://itsbibeksaini.github.io/mockups-react",
   "name": "mockups-react",
   "version": "0.1.0",
   "private": true,
@@ -18,6 +19,7 @@
     "@types/react-dom": "17.0.9",
     "@types/react-router-dom": "5.1.8",
     "bootstrap": "5.1.1",
+    "gh-pages": "^3.2.3",
     "node-sass": "6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -29,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
