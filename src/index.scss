@@ -1,13 +1,51 @@
+:root {
+  // We just need to know these 3 values up front:
+  --gutter: 10px;
+  --wrapper: calc(100vw - (2 * var(--gutter)));
+
+  --noOfColumns: 12;
+
+  // Number of gutters is columns minus 1:
+  --noOfGutters: calc(var(--noOfColumns) - 1);
+
+  // Aspect ratio goes here:
+  --ratioA: 1;
+  --ratioB: 1;
+
+  // Use the aspect ratio to calculate the factor for multiplication:
+  --factor: 0;
+
+  // Calculating the row height:
+  --rh: calc(
+    (
+        (var(--wrapper) - (var(--noOfGutters) * var(--gutter))) /
+          var(--noOfColumns)
+      ) * var(--factor)
+  );
+
+  @media (max-width: 425px) {
+    --wrapper: 60em;
+    --gutter: 20px;
+    --noOfColumns: 2;
+    --ratioA: 1;
+    --ratioB: 1;
+  }
+}
+
+#root {
+  position: relative;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
