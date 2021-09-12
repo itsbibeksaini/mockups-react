@@ -1,13 +1,13 @@
-import { faEyeSlash, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash, faKey, faTrash, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Button, Card, Checkbox, FormControlLabel, InputAdornment, TextField, Typography } from '@material-ui/core';
+import { Box, Button, Card, Checkbox, FormControlLabel, IconButton, InputAdornment, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './LoginPage.module.scss';
 export class LoginPage extends React.Component{
   render(){
     return(
-      <Box flexDirection="row" display="flex" justifyContent='center'>
-        <Box m={1} className={`${styles.loginCard}`}>
+      <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center'>
+        <Box m={1} className={`${styles.loginCard}`} height='fit-content'>
         <header className={'padding1015'}>
           <Typography variant="h4">Welcome</Typography>
           <Typography variant="subtitle2">Login to continue to services</Typography>
@@ -61,7 +61,25 @@ export class LoginPage extends React.Component{
         </Box>
 
         <Box m={1} className={`${styles.loginCard}`}>
+          <header className={'padding1015'}>
+            <Typography variant="h4">Welcome</Typography>
+            <Typography variant="subtitle2">Login to continue to services</Typography>
+          </header>
 
+          <div className={'padding1015'}>
+            <Box flexDirection="row" display="flex" style={{ padding:'0.5rem', borderRadius:'0.25rem', backgroundColor:'#f5f5f5'}}>
+              <div style={{width:'40px', position: 'relative'}}>
+                <div className={`${styles.profileIcon} ${styles.verticalCenter}`}></div>
+              </div>              
+              <Box flexGrow={1} style={{marginLeft:'0.5rem'}}>
+                <Typography variant="h5">John Doe</Typography>
+                <Typography variant="subtitle2">John Doe</Typography>
+              </Box>
+              <Box justifyItems="flex-end" style={{position:'relative', width:'50px', textAlign:'center'}}>                
+                <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`}/> 
+              </Box>
+            </Box>            
+          </div>
         </Box>
         
       </Box>

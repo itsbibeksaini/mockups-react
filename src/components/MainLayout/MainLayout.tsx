@@ -16,7 +16,7 @@ class MainLayout extends React.Component{
   render(){
     return(
       <div style={{padding:'0.75rem', 'height': '100%', boxSizing: 'border-box'}}>        
-        <Card style={{boxSizing:'border-box', margin:'auto', height:'100%'}} classes={{root: 'shadow padding2030 max-supported-width'}}>          
+        <Card style={{boxSizing:'border-box', margin:'auto', height:'100%', overflow:'hidden', overflowY:'auto'}} classes={{root: 'shadow padding2030 max-supported-width'}}>          
 
         {this.routes.map((route, index) => {                    
           return (
