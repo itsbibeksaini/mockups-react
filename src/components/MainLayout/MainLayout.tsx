@@ -22,7 +22,7 @@ class MainLayout extends React.Component{
           return (
             <div>            
               <Link to="/">
-                <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', cursor:'pointer'}} />  
+                <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', cursor:'pointer', color:'#000'}} />  
               </Link>
               <h2 style={{margin:0}}>{route.name}</h2>
               <hr style={{opacity:'0.25', margin: '1rem 0'}}/>
