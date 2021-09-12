@@ -22,7 +22,7 @@ export default class App extends Component{
                 path={route.path} 
                 exact={route.exact} 
                 render={(props: RouteComponentProps<any>) => (
-                  <route.component  {...props} {...route.props}/>
+                  <route.component routes={route.childern} {...props} {...route.props}/>
                 )} 
               />
             )
