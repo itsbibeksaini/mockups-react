@@ -1,12 +1,13 @@
 import { faEyeSlash, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Card, Checkbox, FormControlLabel, InputAdornment, TextField, Typography } from '@material-ui/core';
+import { Box, Button, Card, Checkbox, FormControlLabel, InputAdornment, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './LoginPage.module.scss';
 export class LoginPage extends React.Component{
   render(){
     return(
-      <div className={`${styles.loginCard}`}>
+      <Box flexDirection="row" display="flex" justifyContent='center'>
+        <Box m={1} className={`${styles.loginCard}`}>
         <header className={'padding1015'}>
           <Typography variant="h4">Welcome</Typography>
           <Typography variant="subtitle2">Login to continue to services</Typography>
@@ -57,7 +58,13 @@ export class LoginPage extends React.Component{
             <Button color="primary"> Forgot password? </Button>            
           </div>
         </div>
-      </div>
+        </Box>
+
+        <Box m={1} className={`${styles.loginCard}`}>
+
+        </Box>
+        
+      </Box>
     )
   }
 }
