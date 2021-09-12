@@ -2,10 +2,8 @@ import { Box } from '@material-ui/core';
 import React, { Component } from 'react';
 import styles from './Home.module.scss';
 import logo from '../../assets/loginpage_dark.png'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {useLocation} from 'react-router';
-import {Switch} from 'react-router-dom'
-import LoginPage from '../LoginPage/LoginPage';
+import { Link } from "react-router-dom";
+
 export default class Home extends Component{
 
   constructor(props:any){
@@ -15,9 +13,15 @@ export default class Home extends Component{
 
   render(){
     return (      
-      <div>
-        HOME
-      </div>
+      <Box display="flex" className={`${styles.padding2030} ${styles.galleryWrapper}`}>
+        <div className={`${styles.grid}`}>
+          <div className={`${styles.gridItem} ${styles.gridItemLG}`}>
+            <Link to="/login">
+              <img src={logo} alt=""></img>
+            </Link>                        
+          </div>
+        </div>
+      </Box>
     )
   }
 }
