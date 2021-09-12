@@ -1,8 +1,10 @@
 import { Box, Card } from '@material-ui/core';
 import React from 'react';
-import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Route, RouteComponentProps, Link } from 'react-router-dom';
 import styles from './MainLayout.module.scss';
 import IRoute from '../../core/routes/IRoute';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 class MainLayout extends React.Component{
 
   routes: IRoute[];
@@ -15,22 +17,23 @@ class MainLayout extends React.Component{
     return(
       <Box display="flex" justifyContent="center" style={{padding:'0.75rem', 'height': '100%', boxSizing: 'border-box'}}>
         <Card style={{width: '1440px', padding: '20px 30px', boxSizing:'border-box'}} classes={{root: styles.shadow}}>          
-          <header style={{border:'1px solid red'}}>
-            
-          </header>
-
 
         {this.routes.map((route, index) => {                    
           return (
-            <Route key={index}
-                 path={route.path}
-                 exact={route.exact} 
-                 render={(props: RouteComponentProps<any>) => (
-                  <route.component routes={route.childern} {...props} {...route.props}/>
-                )}
-                 >
+            <div>            
+              <Link to="/">
+                <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', cursor:'pointer'}} />  
+              </Link>
+              <h2 style={{margin:0}}>{route.name}</h2>
+              <hr style={{opacity:'0.25', margin: '1rem 0'}}/>
 
-            </Route> 
+              <Route key={index} 
+                    path={route.path}
+                    exact={route.exact}
+                    render={(props: RouteComponentProps<any>) => (
+                      <route.component routes={route.childern} {...props} {...route.props}/>
+                    )} />
+            </div>
           )
         })}
           

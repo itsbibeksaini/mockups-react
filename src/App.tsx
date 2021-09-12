@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route, RouteComponentProps } from 'react-router-dom';
 import './App.scss';
 import ROUTES from './core/routes/routes';
-import Home from './mockups/Home/Home';
-import LoginPage from './mockups/LoginPage/LoginPage';
 
-export default class App extends Component{
+export default class App extends React.Component{
 
   // constructor(props:any){
   //   super(props)

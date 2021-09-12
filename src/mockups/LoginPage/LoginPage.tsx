@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './LoginPage.module.scss';
-export class LoginPage extends Component{
+export class LoginPage extends React.Component{
   render(){
     return(
       <div>

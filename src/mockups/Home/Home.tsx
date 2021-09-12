@@ -5,11 +5,6 @@ import logo from '../../assets/loginpage_dark.png'
 import { Link } from "react-router-dom";
 
 export default class Home extends Component{
-
-  constructor(props:any){
-    super(props)    
-  }
-
   render(){
     return (      
       <Box display="flex" className={`${styles.padding2030} ${styles.galleryWrapper}`}>

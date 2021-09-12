@@ -15,7 +15,7 @@ const ROUTES: IRoute[] = [{
     exact: true,
     childern: [{
         path: '',
-        name: "",
+        name: "Login",
         component: LoginPage,
         exact: true,
     }]
