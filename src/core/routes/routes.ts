@@ -1,5 +1,5 @@
+import MainLayout from "../../components/MainLayout/MainLayout";
 import Home from "../../mockups/Home/Home";
-import LoginPage from "../../mockups/LoginPage/LoginPage";
 import IRoute from "./IRoute";
 
 const ROUTES: IRoute[] = [{
@@ -10,7 +10,7 @@ const ROUTES: IRoute[] = [{
 }, {
     path: '/login',
     name: "",
-    component: LoginPage,
+    component: MainLayout,
     exact: true
 }]
 
