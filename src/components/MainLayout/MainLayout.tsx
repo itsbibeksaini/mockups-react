@@ -15,17 +15,17 @@ class MainLayout extends React.Component{
 
   render(){
     return(
-      <Box display="flex" justifyContent="center" style={{padding:'0.75rem', 'height': '100%', boxSizing: 'border-box'}}>
-        <Card style={{width: '1440px', padding: '20px 30px', boxSizing:'border-box'}} classes={{root: styles.shadow}}>          
+      <div style={{padding:'0.75rem', 'height': '100%', boxSizing: 'border-box'}}>        
+        <Card style={{boxSizing:'border-box', margin:'auto', height:'100%'}} classes={{root: 'shadow padding2030 max-supported-width'}}>          
 
         {this.routes.map((route, index) => {                    
           return (
             <div>            
               <Link to="/">
-                <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', cursor:'pointer', color:'#000'}} />  
+                <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', color:'#000'}} className={'cursor-pointer'} />  
               </Link>
               <h2 style={{margin:0}}>{route.name}</h2>
-              <hr style={{opacity:'0.25', margin: '1rem 0'}}/>
+              <hr/>
 
               <Route key={index} 
                     path={route.path}
@@ -38,7 +38,7 @@ class MainLayout extends React.Component{
         })}
           
         </Card>
-      </Box>
+      </div>
     )
   }
 }
