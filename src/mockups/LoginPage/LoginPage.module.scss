@@ -1,3 +1,5 @@
+@import "../../_mixins.scss";
+
 .loginCard {
   width: 350px;
   border: 1px solid #ccc;
@@ -13,9 +15,18 @@
     border-radius: 0.25rem;
     background-color: #f5f5f5;
     cursor: pointer;
+    transition: all 02s ease-in-out;
 
-    &:not(:last-of-type){
+    &:not(:last-of-type) {
       margin-bottom: 1rem;
+    }
+
+    & .trashIcon {
+      display: none;
+
+      &:hover {
+        color: red;
+      }
     }
 
     & .profileIcon {
@@ -23,6 +34,17 @@
       height: 40px;
       border-radius: 50%;
       border: 1px solid red;
+      text-align: center;
+    }
+
+    & .initials {
+      @include initials(40px);
+    }
+
+    &:hover {
+      & .trashIcon {
+        display: block;
+      }
     }
   }
 }

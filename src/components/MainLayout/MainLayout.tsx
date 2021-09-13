@@ -5,7 +5,7 @@ import styles from './MainLayout.module.scss';
 import IRoute from '../../core/routes/IRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
-import SavedUser from '../../mockups/LoginPage/state/saved-user';
+import SavedUser from '../../mockups/LoginPage/state/ISavedUser';
 class MainLayout extends React.Component<{}, SavedUser>{
 
   routes: IRoute[];
@@ -23,15 +23,14 @@ class MainLayout extends React.Component<{}, SavedUser>{
 
         {this.routes.map((route, index) => {                    
           return (
-            <div>            
+            <div key={index}>            
               <Link to="/">
                 <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', color:'#000'}} className={'cursor-pointer'} />  
               </Link>
               <h2 style={{margin:0}}>{route.name}</h2>
               <hr/>
 
-              <Route key={index} 
-                    path={route.path}
+              <Route path={route.path}
                     exact={route.exact}
                     render={(props: RouteComponentProps<any>) => (
                       <route.component routes={route.childern} {...props} {...route.props}/>

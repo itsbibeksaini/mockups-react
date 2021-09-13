@@ -1,0 +1,7 @@
+@mixin initials($height) {
+  color: var(--combo-black-blue-500);
+  font-size: calc(#{$height} / 2); /* 50% of parent */
+  line-height: 1;
+  position: relative;
+  top: calc(#{$height} / 4); /* 25% of parent */
+}

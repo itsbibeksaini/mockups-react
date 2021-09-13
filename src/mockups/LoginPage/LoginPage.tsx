@@ -1,7 +1,7 @@
 import { faEyeSlash, faKey, faTrash, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Button, Card, Checkbox, FormControlLabel, IconButton, InputAdornment, TextField, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import styles from './LoginPage.module.scss';
 import ILoginPageState from './state/ILoginPageState';
 export class LoginPage extends React.Component<{}, ILoginPageState>{
@@ -13,11 +13,18 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
       savedUser: [{
         initials: "JD",
         name: "John Doe",
-        username: "jhondoe"
+        username: "johndoe",
+        selected: false
       }, {
         initials: "JD",
         name: "John Doe",
-        username: "jhondoe"
+        username: "johndoe",
+        selected: false
+      }, {
+        initials: "JD",
+        name: "John Doe",
+        username: "johndoe",
+        selected: false
       }]
     }
   }
@@ -87,28 +94,47 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
           <div className={'padding1015'}>
             {this.state.savedUser.map((user, index) => {
               return (
-                <Box flexDirection="row" display="flex" className={`${styles.savedUser}`}>
-                  <div style={{width:'40px', position: 'relative'}}>
-                    <div className={`${styles.profileIcon} ${styles.verticalCenter}`}>
-                      <span className={`${styles.initials}`}>{user.initials}</span>
+
+                <Box flexDirection="column" display="flex" key={index} className={`${styles.savedUser}`}>
+                  <Box flexDirection="row" display="flex" onClick={this.testClick}>
+                    <div style={{width:'40px', position: 'relative'}}>
+                      <div className={`${styles.profileIcon} ${styles.verticalCenter}`}>
+                        <span className={`${styles.initials}`}>{user.initials}</span>
+                      </div>
                     </div>
-                  </div>
-                  <Box flexGrow={1} style={{marginLeft:'0.5rem'}}>
-                    <Typography variant="h5">{user.name}</Typography>
-                    <Typography variant="subtitle2">@{user.username}</Typography>
+                    <Box flexGrow={1} style={{marginLeft:'0.5rem'}}>
+                      <Typography variant="h5">{user.name}</Typography>
+                      <Typography variant="subtitle2">@{user.username}</Typography>
+                    </Box>
+                    <Box justifyItems="flex-end" className={`${styles.trashIcon}`} style={{position:'relative', width:'50px', textAlign:'center'}}>                
+                      <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`}/> 
+                    </Box>    
                   </Box>
-                  <Box justifyItems="flex-end" style={{position:'relative', width:'50px', textAlign:'center'}}>                
-                    <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`}/> 
-                  </Box>    
-                </Box>        
+
+                  {
+                    user.selected ? <Box style={{border:'1px solid red'}}></Box> : ""
+                  }
+                  
+                </Box>
+
+                
               )
             })}
+
+          <div style={{textAlign:'right'}}>
+            <Button variant="outlined" color="primary"> Use another account</Button>            
+          </div>
                        
           </div>
         </Box>
         
       </Box>
     )
+  }
+
+  testClick = (evt:MouseEvent) => {
+    debugger
+    alert("test")
   }
 }
 
