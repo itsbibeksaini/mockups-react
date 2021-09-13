@@ -1,7 +1,7 @@
 import { Box, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import styles from './Home.module.scss';
-import logo from '../../assets/loginpage_dark.png'
+import logo from '../../assets/loginpage.png'
 import { Link } from "react-router-dom";
 
 export default class Home extends Component{
