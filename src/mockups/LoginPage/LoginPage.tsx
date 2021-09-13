@@ -67,7 +67,7 @@ export class LoginPage extends React.Component{
           </header>
 
           <div className={'padding1015'}>
-            <Box flexDirection="row" display="flex" style={{ padding:'0.5rem', borderRadius:'0.25rem', backgroundColor:'#f5f5f5'}}>
+            <Box flexDirection="row" display="flex" className={`${styles.savedUser}`}>
               <div style={{width:'40px', position: 'relative'}}>
                 <div className={`${styles.profileIcon} ${styles.verticalCenter}`}></div>
               </div>              
