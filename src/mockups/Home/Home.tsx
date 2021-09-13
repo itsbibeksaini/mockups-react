@@ -20,12 +20,7 @@ export default class Home extends Component{
               <Link to="/login">
                 <img src={logo} alt=""></img>
               </Link>                        
-            </div>
-            <div className={`${styles.gridItem} ${styles.gridItemXS}`}>
-              <Link to="/music-store">
-                <img src={logo} alt=""></img>
-              </Link>                        
-            </div>
+            </div>            
           </div>
         </Box>
       </div>

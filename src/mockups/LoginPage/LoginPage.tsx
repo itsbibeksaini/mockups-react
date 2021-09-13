@@ -4,6 +4,7 @@ import { Box, Button, Card, Checkbox, FormControlLabel, IconButton, InputAdornme
 import React, { MouseEvent } from 'react';
 import styles from './LoginPage.module.scss';
 import ILoginPageState from './state/ILoginPageState';
+import ISavedUser from './state/ISavedUser';
 export class LoginPage extends React.Component<{}, ILoginPageState>{
 
   constructor(props:any){
@@ -66,7 +67,7 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
                        ),
                        endAdornment: (
                          <InputAdornment position="end">
-                           <FontAwesomeIcon icon={faEyeSlash} style={{fontSize:'21px'}}/>
+                           <FontAwesomeIcon icon={faEyeSlash} style={{fontSize:'21px'}} className={'cursor-pointer'}/>
                          </InputAdornment>
                        )
                      }} />
@@ -96,7 +97,7 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
               return (
 
                 <Box flexDirection="column" display="flex" key={index} className={`${styles.savedUser}`}>
-                  <Box flexDirection="row" display="flex" onClick={this.testClick}>
+                  <Box flexDirection="row" display="flex" onClick={() => this.clickUser(index)}>
                     <div style={{width:'40px', position: 'relative'}}>
                       <div className={`${styles.profileIcon} ${styles.verticalCenter}`}>
                         <span className={`${styles.initials}`}>{user.initials}</span>
@@ -112,7 +113,30 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
                   </Box>
 
                   {
-                    user.selected ? <Box style={{border:'1px solid red'}}></Box> : ""
+                    user.selected ? 
+                    <Box className={'padding1015'} style={{marginTop:'0.5rem'}}>                      
+                      <TextField variant="outlined" 
+                                 label="Password" 
+                                 type="password" 
+                                 style={{width:'100%'}}
+                                 InputProps={{
+                                  startAdornment: (
+                                    <InputAdornment position="start">
+                                      <FontAwesomeIcon icon={faKey} style={{fontSize:'21px'}}/>
+                                    </InputAdornment>
+                                  ),
+                                  endAdornment: (
+                                    <InputAdornment position="end">
+                                      <FontAwesomeIcon icon={faEyeSlash} style={{fontSize:'21px'}} className={'cursor-pointer'} onClick={() => this.togglePassword()}/>
+                                    </InputAdornment>
+                                  )
+                                }} />
+                      <div style={{marginTop:'0.5rem', textAlign:'right'}}>
+                        <Button variant="contained" color="primary">
+                          Log in as {user.name}? 
+                        </Button>
+                      </div>
+                    </Box> : ""
                   }
                   
                 </Box>
@@ -132,8 +156,28 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
     )
   }
 
-  testClick = (evt:MouseEvent) => {
-    debugger
+  clickUser = (index:any) => {    
+    this.setState(() => {
+      const currentUsers = this.state.savedUser
+
+      // unselect all users first.
+      currentUsers.map((user) => {
+        if(user.selected)
+          user.selected = false
+      })
+
+      let clickedUser = Object.assign({}, currentUsers[index])
+      clickedUser.selected = true
+      currentUsers[index] = clickedUser
+      
+      return{
+        ...this.state,
+        savedUser: currentUsers
+      }
+    })
+  }
+
+  togglePassword = () => {
     alert("test")
   }
 }
