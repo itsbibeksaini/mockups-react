@@ -3,7 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Button, Card, Checkbox, FormControlLabel, IconButton, InputAdornment, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './LoginPage.module.scss';
-export class LoginPage extends React.Component{
+import ILoginPageState from './state/ILoginPageState';
+export class LoginPage extends React.Component<{}, ILoginPageState>{
+
+  constructor(props:any){
+    super(props)
+
+    this.state = {
+      savedUser: [{
+        initials: "JD",
+        name: "John Doe",
+        username: "jhondoe"
+      }, {
+        initials: "JD",
+        name: "John Doe",
+        username: "jhondoe"
+      }]
+    }
+  }
+
   render(){
     return(
       <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center'>
@@ -67,18 +85,25 @@ export class LoginPage extends React.Component{
           </header>
 
           <div className={'padding1015'}>
-            <Box flexDirection="row" display="flex" className={`${styles.savedUser}`}>
-              <div style={{width:'40px', position: 'relative'}}>
-                <div className={`${styles.profileIcon} ${styles.verticalCenter}`}></div>
-              </div>              
-              <Box flexGrow={1} style={{marginLeft:'0.5rem'}}>
-                <Typography variant="h5">John Doe</Typography>
-                <Typography variant="subtitle2">John Doe</Typography>
-              </Box>
-              <Box justifyItems="flex-end" style={{position:'relative', width:'50px', textAlign:'center'}}>                
-                <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`}/> 
-              </Box>
-            </Box>            
+            {this.state.savedUser.map((user, index) => {
+              return (
+                <Box flexDirection="row" display="flex" className={`${styles.savedUser}`}>
+                  <div style={{width:'40px', position: 'relative'}}>
+                    <div className={`${styles.profileIcon} ${styles.verticalCenter}`}>
+                      <span className={`${styles.initials}`}>{user.initials}</span>
+                    </div>
+                  </div>
+                  <Box flexGrow={1} style={{marginLeft:'0.5rem'}}>
+                    <Typography variant="h5">{user.name}</Typography>
+                    <Typography variant="subtitle2">@{user.username}</Typography>
+                  </Box>
+                  <Box justifyItems="flex-end" style={{position:'relative', width:'50px', textAlign:'center'}}>                
+                    <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`}/> 
+                  </Box>    
+                </Box>        
+              )
+            })}
+                       
           </div>
         </Box>
         

@@ -5,12 +5,15 @@ import styles from './MainLayout.module.scss';
 import IRoute from '../../core/routes/IRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
-class MainLayout extends React.Component{
+import SavedUser from '../../mockups/LoginPage/state/saved-user';
+class MainLayout extends React.Component<{}, SavedUser>{
 
   routes: IRoute[];
   constructor(props:any){    
     super(props)    
     this.routes = props.routes    
+
+    
   }
 
   render(){
