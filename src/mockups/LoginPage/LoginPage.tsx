@@ -157,7 +157,6 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
   }
 
   clickUser = (index:any) => {    
-
     const currentUsers = this.state.savedUser
     // unselect all users first.
     currentUsers.map((user) => {
