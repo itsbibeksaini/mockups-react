@@ -13,17 +13,17 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
     this.state = {
       savedUser: [{
         initials: "JD",
-        name: "John Doe",
+        name: "John Doe 1",
         username: "johndoe",
         selected: false
       }, {
         initials: "JD",
-        name: "John Doe",
+        name: "John Doe 2",
         username: "johndoe",
         selected: false
       }, {
         initials: "JD",
-        name: "John Doe",
+        name: "John Doe 3",
         username: "johndoe",
         selected: false
       }]
@@ -93,9 +93,9 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
           </header>
 
           <div className={'padding1015'}>
-            {this.state.savedUser.map((user, index) => {
+            {this.state.savedUser.map((user, index) => {              
               return (
-
+                
                 <Box flexDirection="column" display="flex" key={index} className={`${styles.savedUser}`}>
                   <Box flexDirection="row" display="flex" onClick={() => this.clickUser(index)}>
                     <div style={{width:'40px', position: 'relative'}}>
@@ -108,7 +108,7 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
                       <Typography variant="subtitle2">@{user.username}</Typography>
                     </Box>
                     <Box justifyItems="flex-end" className={`${styles.trashIcon}`} style={{position:'relative', width:'50px', textAlign:'center'}}>                
-                      <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`}/> 
+                      <FontAwesomeIcon icon={faTrash} className={`${styles.verticalCenter}`} onClick={() => this.deleteUser(index)}/> 
                     </Box>    
                   </Box>
 
@@ -157,28 +157,34 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
   }
 
   clickUser = (index:any) => {    
-    this.setState(() => {
-      const currentUsers = this.state.savedUser
 
-      // unselect all users first.
-      currentUsers.map((user) => {
-        if(user.selected)
-          user.selected = false
-      })
+    const currentUsers = this.state.savedUser
+    // unselect all users first.
+    currentUsers.map((user) => {
+      if(user.selected)
+        user.selected = false
+    })
 
-      let clickedUser = Object.assign({}, currentUsers[index])
-      clickedUser.selected = true
-      currentUsers[index] = clickedUser
-      
-      return{
-        ...this.state,
-        savedUser: currentUsers
-      }
+    let clickedUser = Object.assign({}, currentUsers[index])
+    clickedUser.selected = true
+    currentUsers[index] = clickedUser
+
+    this.setState({
+      savedUser: currentUsers
     })
   }
 
   togglePassword = () => {
     alert("test")
+  }
+
+  deleteUser = (index:number) =>{
+    const currentUsers = this.state.savedUser
+    currentUsers.splice(index, 1) 
+
+    this.setState({
+      savedUser: currentUsers
+    })
   }
 }
 
