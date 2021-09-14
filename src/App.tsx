@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, RouteComponentProps } from 'react-router-dom';
+import { Switch, Route, RouteComponentProps, HashRouter } from 'react-router-dom';
 import './App.scss';
 import ROUTES from './core/routes/routes';
 
@@ -11,7 +11,7 @@ export default class App extends React.Component{
 
   render(){
     return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           {ROUTES.map((route, index) => {
             return(
@@ -26,7 +26,7 @@ export default class App extends React.Component{
             )
           })}
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
 }
