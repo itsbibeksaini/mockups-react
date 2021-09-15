@@ -2,52 +2,36 @@ import { Box } from '@material-ui/core';
 import React from 'react';
 import styles from './MusicStore.module.scss';
 import logo from '../../assets/music-store/banners/piku.jpg'
-class MusicStore extends React.Component{
+import IMusicStoreState from './state/IMusicStoreState';
+import { BANNERS } from './data/banners';
+class MusicStore extends React.Component<{}, IMusicStoreState>{
+  constructor(props:any){
+    super(props)
+
+    this.state = {
+      banners: BANNERS
+    }
+  }
   render(){
     return(
       <div className={`${styles.MusicStore}`}>
         <header className={`${styles.accordian}`}>
         <ul>
-          <li>
-            <div className={`${styles.imageTitle}`}>
-              <span>KungFu Panda</span>
-            </div>
-            <span>
-              <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"/>
-            </span>
-          </li>
-          <li>
-            <div className={`${styles.imageTitle}`}>
-              <span>KungFu Panda</span>
-            </div>
-            <span>
-              <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"/>
-            </span>
-          </li>
-          <li>
-            <div className={`${styles.imageTitle}`}>
-              <span>KungFu Panda</span>
-            </div>
-            <span>
-              <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"/>
-            </span>
-          </li>
-          <li>
-            <div className={`${styles.imageTitle}`}>
-              <span>KungFu Panda</span>
-            </div>
-            <span>
-              <img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"/>
-            </span>
-          </li>
-          <li>
-            <div className={`${styles.imageTitle}`}>
-              <span>KungFu Panda</span>
-            </div>
-            <span>
-              <img src={logo}/>
-            </span>
-          </li>
+          {
+            this.state.banners.map((banner, index) => {
+              return(
+                <li>
+                  <div className={`${styles.imageTitle}`}>
+                    <span>{banner.title}</span>
+                  </div>
+                  <span>
+                    <img src={banner.image}/>
+                  </span>
+                </li>  
+              )  
+            })
+          }
+          
         </ul>          
         </header>
 
