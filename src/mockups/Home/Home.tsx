@@ -45,21 +45,19 @@ export default class Home extends React.Component<{}, IHomeState>{
           <hr/>
         </header>
         <Box display="flex" className={`${styles.padding2030} ${styles.galleryWrapper}`}>
-
-        {
-          this.state.thumbmails.map((thumb, index) => {
-            return (
-              <div className={`${styles.grid}`} key={index}>
-                <div className={[styles[thumb.size], styles['gridItem']].join(' ')}>
-                  <Link to={thumb.routerLink}>
-                    <img src={thumb.image} alt=""></img>
-                  </Link>                        
-                </div>            
-              </div>
-            )
-          })
-        }
-          
+          <div className={`${styles.grid}`}>
+            {            
+              this.state.thumbmails.map((thumb, index) => {
+                return (
+                  <div className={[styles[thumb.size], styles['gridItem']].join(' ')}  key={index}>
+                    <Link to={thumb.routerLink}>
+                      <img src={thumb.image} alt=""></img>
+                    </Link>                        
+                  </div>  
+                )
+              })
+            }                
+          </div>        
         </Box>
       </div>
     )
