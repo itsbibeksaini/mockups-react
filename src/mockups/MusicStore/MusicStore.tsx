@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './MusicStore.module.scss';
 import logo from '../../assets/music-store/banners/piku.jpg'
@@ -42,6 +42,9 @@ class MusicStore extends React.Component<{}, IMusicStoreState>{
             this.state.albumThumbs.map((album, index) => {
               return(
                 <Box m={1} className={`${styles.album}`}>
+                  <div className={`${styles.title}`}>
+                    <Typography variant='h6'>{album.title}</Typography>
+                  </div>
                   <img src={album.image}/>
                 </Box>
               )

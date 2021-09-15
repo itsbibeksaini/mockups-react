@@ -1,3 +1,4 @@
 export default interface IAlbum{
-    image: string
+    image: string,
+    title: string
 }
