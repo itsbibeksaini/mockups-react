@@ -1,10 +1,40 @@
 import { Box, Typography } from '@material-ui/core';
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './Home.module.scss';
-import logo from '../../assets/loginpage.png'
+import './Home.module.scss';
 import { Link } from "react-router-dom";
+import IHomeState from './state/IHomeState';
+import { THUMBNAIL_DATA } from './data/thumbnail-data';
 
-export default class Home extends Component{
+export default class Home extends React.Component<{}, IHomeState>{
+
+  availableSizes: string[] = ['gridItemLG', 'gridItemSM', 'gridItemXS']
+  
+  constructor(props:any){
+    super(props)
+    
+    let lastIndex:number = 0;
+    THUMBNAIL_DATA.map((thumb, index) => {
+      let randomIndex = this.getRandomNumber(lastIndex)
+      thumb.size = this.availableSizes[randomIndex]
+      lastIndex = randomIndex
+    })
+
+
+    this.state = {
+      thumbmails: THUMBNAIL_DATA
+    }
+  }
+
+  getRandomNumber = (lastNumber: number): number => {
+    let randomNumber = Math.floor(Math.random() * this.availableSizes.length)
+    while(lastNumber === randomNumber){
+      randomNumber = Math.floor(Math.random() * this.availableSizes.length)
+    }
+
+    return randomNumber
+  }
+
   render(){
     return (      
 
@@ -15,13 +45,21 @@ export default class Home extends Component{
           <hr/>
         </header>
         <Box display="flex" className={`${styles.padding2030} ${styles.galleryWrapper}`}>
-          <div className={`${styles.grid}`}>
-            <div className={`${styles.gridItem} ${styles.gridItemLG}`}>
-              <Link to="/login">
-                <img src={logo} alt=""></img>
-              </Link>                        
-            </div>            
-          </div>
+
+        {
+          this.state.thumbmails.map((thumb, index) => {
+            return (
+              <div className={`${styles.grid}`} key={index}>
+                <div className={[styles[thumb.size], styles['gridItem']].join(' ')}>
+                  <Link to={thumb.routerLink}>
+                    <img src={thumb.image} alt=""></img>
+                  </Link>                        
+                </div>            
+              </div>
+            )
+          })
+        }
+          
         </Box>
       </div>
     )
