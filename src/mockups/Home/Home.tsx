@@ -49,7 +49,7 @@ export default class Home extends React.Component<{}, IHomeState>{
             {            
               this.state.thumbmails.map((thumb, index) => {
                 return (
-                  <div className={[styles[thumb.size], styles['gridItem']].join(' ')}  key={index}>
+                  <div className={[styles[thumb.size], styles['gridItem'], 'animate__animated animate__zoomIn animate__faster'].join(' ')}  key={index}>
                     <Link to={thumb.routerLink}>
                       <img src={thumb.image} alt=""></img>
                     </Link>                        
