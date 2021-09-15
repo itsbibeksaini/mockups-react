@@ -5,4 +5,8 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
     image: loginpage,
     routerLink: '/login',
     size:''
+}, {
+    image: loginpage,
+    routerLink: '/music-store',
+    size:''
 }]
