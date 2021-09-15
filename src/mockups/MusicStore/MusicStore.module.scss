@@ -71,12 +71,20 @@
 
   & .albumArts {
     padding: 10px 15px;
+    margin-top: 1rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 
     & .album {
-      width: 120px;
-      height: 120px;
+      width: 160px;
+      height: 160px;
       border-radius: 0.25rem;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+
+      & img {
+        width: 100%;
+        border-radius: 0.25rem;
+      }
     }
   }
 }

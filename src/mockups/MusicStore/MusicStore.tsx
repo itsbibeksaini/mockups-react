@@ -4,12 +4,14 @@ import styles from './MusicStore.module.scss';
 import logo from '../../assets/music-store/banners/piku.jpg'
 import IMusicStoreState from './state/IMusicStoreState';
 import { BANNERS } from './data/banners';
+import { ALBUM_THUMBS } from './data/album-thumbs';
 class MusicStore extends React.Component<{}, IMusicStoreState>{
   constructor(props:any){
     super(props)
 
     this.state = {
-      banners: BANNERS
+      banners: BANNERS,
+      albumThumbs: ALBUM_THUMBS
     }
   }
   render(){
@@ -35,14 +37,16 @@ class MusicStore extends React.Component<{}, IMusicStoreState>{
         </ul>          
         </header>
 
-        <Box display="flex" flexWrap="wrap" style={{width:'850px', margin:'auto'}} className={`${styles.albumArts}`}>
-          <Box m={1} className={`${styles.album}`}>
-
-          </Box>
-          <Box m={1} className={`${styles.album}`}>
-
-          </Box>
-          
+        <Box display="flex" flexWrap="wrap" justifyContent="center" style={{width:'900px', margin:'auto'}} className={`${styles.albumArts}`}>
+          {
+            this.state.albumThumbs.map((album, index) => {
+              return(
+                <Box m={1} className={`${styles.album}`}>
+                  <img src={album.image}/>
+                </Box>
+              )
+            })
+          }
         </Box>
       </div>
     )
