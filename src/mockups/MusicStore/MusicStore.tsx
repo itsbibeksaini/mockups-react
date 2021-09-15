@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './MusicStore.module.scss';
 import logo from '../../assets/music-store/banners/piku.jpg'
@@ -17,6 +17,15 @@ class MusicStore extends React.Component<{}, IMusicStoreState>{
   render(){
     return(
       <div className={`${styles.MusicStore}`}>
+        <Box display="flex" className={`${styles.topMenu}`}>
+          <Box flexGrow={1}>
+            <Typography variant="h4">Music Store</Typography>
+          </Box>
+          <Box alignSelf="center">
+            <Button variant='contained' color="primary">Log in</Button>
+          </Box>
+        </Box>
+
         <header className={`${styles.accordian}`}>
         <ul>
           {
