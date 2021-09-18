@@ -1,10 +1,10 @@
-import { Box, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './Home.module.scss';
 import './Home.module.scss';
 import { Link } from "react-router-dom";
 import IHomeState from './state/IHomeState';
 import { THUMBNAIL_DATA } from './data/thumbnail-data';
+import { Box, Typography } from '@mui/material';
 
 export default class Home extends React.Component<{}, IHomeState>{
 

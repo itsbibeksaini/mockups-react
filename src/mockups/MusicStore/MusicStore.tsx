@@ -1,10 +1,10 @@
-import { Box, Button, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './MusicStore.module.scss';
 import logo from '../../assets/music-store/banners/piku.jpg'
 import IMusicStoreState from './state/IMusicStoreState';
 import { BANNERS } from './data/banners';
 import { ALBUM_THUMBS } from './data/album-thumbs';
+import { Box, Button, Typography } from '@mui/material';
 class MusicStore extends React.Component<{}, IMusicStoreState>{
   constructor(props:any){
     super(props)

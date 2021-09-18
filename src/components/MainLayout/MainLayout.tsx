@@ -1,4 +1,3 @@
-import { Box, Card } from '@material-ui/core';
 import React from 'react';
 import { Route, RouteComponentProps, Link } from 'react-router-dom';
 import styles from './MainLayout.module.scss';
@@ -6,6 +5,7 @@ import IRoute from '../../core/routes/IRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import SavedUser from '../../mockups/LoginPage/state/ISavedUser';
+import { Card } from '@mui/material';
 class MainLayout extends React.Component<{}, SavedUser>{
 
   routes: IRoute[];

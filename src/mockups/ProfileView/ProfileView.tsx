@@ -1,4 +1,5 @@
-import { Typography } from '@material-ui/core';
+
+import { Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
 import styles from './ProfileView.module.scss';
 
@@ -25,7 +26,9 @@ class ProfileView extends React.Component{
         </div>
  
         <div style={{border:'1px solid'}}>
-
+          <Tabs>
+            <Tab label="Test"></Tab>
+          </Tabs>
         </div>
       </div>
     )
