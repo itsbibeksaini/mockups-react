@@ -1,11 +1,9 @@
 import { faEyeSlash, faKey, faTrash, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Card, Checkbox, FormControlLabel, IconButton, InputAdornment, TextField, Typography } from '@material-ui/core';
-import Button from '@mui/material/Button';
-import React, { MouseEvent } from 'react';
+import {Box, Button, Checkbox, FormControlLabel, TextField,  InputAdornment, Typography} from '@mui/material';
+import React from 'react';
 import styles from './LoginPage.module.scss';
 import ILoginPageState from './state/ILoginPageState';
-import ISavedUser from './state/ISavedUser';
 export class LoginPage extends React.Component<{}, ILoginPageState>{
 
   constructor(props:any){
