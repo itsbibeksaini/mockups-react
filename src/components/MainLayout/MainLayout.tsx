@@ -24,7 +24,7 @@ class MainLayout extends React.Component<{}, SavedUser>{
         {this.routes.map((route, index) => {                    
           return (
             <div key={index}>            
-              <header className={'padding2030'}>
+              <header className={'padding2030'} style={{paddingBottom:'0'}}>
                 <Link to="/">
                   <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', color:'#000'}} className={'cursor-pointer'} />  
                 </Link>
