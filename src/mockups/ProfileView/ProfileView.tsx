@@ -25,10 +25,13 @@ class ProfileView extends React.Component{
             <hr/>
         </div>
  
-        <div style={{border:'1px solid'}}>
-          <Tabs>
-            <Tab label="Test"></Tab>
-          </Tabs>
+        <div>
+        <Tabs  centered>
+          <Tab label="Item One" />
+          <Tab label="Item Two" />
+          <Tab label="Item Three" />
+        </Tabs>
+
         </div>
       </div>
     )
