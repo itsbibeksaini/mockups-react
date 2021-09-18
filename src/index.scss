@@ -79,3 +79,10 @@ hr {
   opacity: 0.25;
   margin: 1rem 0;
 }
+
+.wrapper {
+  padding: 0 30px;
+  @media screen and (max-width: 425px) {
+    padding: 0;
+  }
+}

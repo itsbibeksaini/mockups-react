@@ -19,16 +19,19 @@ class MainLayout extends React.Component<{}, SavedUser>{
   render(){
     return(
       <div style={{padding:'0.75rem', 'height': '100%', boxSizing: 'border-box'}}>        
-        <Card style={{boxSizing:'border-box', margin:'auto', height:'100%', overflow:'hidden', overflowY:'auto'}} classes={{root: 'shadow padding2030 max-supported-width'}}>          
+        <Card style={{boxSizing:'border-box', margin:'auto', height:'100%', overflow:'hidden', overflowY:'auto'}} classes={{root: 'shadow max-supported-width'}}>          
 
         {this.routes.map((route, index) => {                    
           return (
             <div key={index}>            
-              <Link to="/">
-                <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', color:'#000'}} className={'cursor-pointer'} />  
-              </Link>
-              <h2 style={{margin:0}}>{route.name}</h2>
-              <hr/>
+              <header className={'padding2030'}>
+                <Link to="/">
+                  <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', color:'#000'}} className={'cursor-pointer'} />  
+                </Link>
+                <h2 style={{margin:0}}>{route.name}</h2>
+                <hr/>
+              </header>
+              
 
               <Route path={route.path}
                     exact={route.exact}

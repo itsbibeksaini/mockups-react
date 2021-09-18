@@ -31,7 +31,7 @@ export class LoginPage extends React.Component<{}, ILoginPageState>{
 
   render(){
     return(
-      <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center'>
+      <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center' className={'wrapper'}>
         <Box m={1} className={`${styles.loginCard}`} height='fit-content'>
         <header className={'padding1015'}>
           <Typography variant="h4">Welcome</Typography>
