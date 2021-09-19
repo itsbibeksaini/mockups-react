@@ -28,12 +28,26 @@
       top: 200px;
       text-align: center;
 
+      &:hover {
+        & .uploadIcon {
+          display: block;
+        }
+      }
+
       & .initials {
         color: #1b1c1e;
         font-size: 80px; /* 50% of parent */
         line-height: 1;
         position: relative;
         top: 40px; /* 25% of parent */
+      }
+
+      & .uploadIcon {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
       }
 
       &::before {
@@ -60,8 +74,8 @@
     text-align: center;
     margin: auto;
 
-    &:hover{
-      & .edit{
+    &:hover {
+      & .edit {
         display: block;
       }
     }

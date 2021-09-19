@@ -1,5 +1,5 @@
 
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCamera, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, IconButton, Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
@@ -21,7 +21,12 @@ class ProfileView extends React.Component<{}, IProfileViewState>{
         <header>
           <div className={`${styles.profileIcon}`}>
               <span className={`${styles.initials}`}>JD</span>
-          </div>
+              <div className={`${styles.uploadIcon}`}>
+                <IconButton color='primary'>
+                  <FontAwesomeIcon icon={faCamera} style={{fontSize:'21px', color:'#000'}}/>
+                </IconButton>                
+              </div>
+          </div>          
         </header>
 
         <div className={`${styles.userName}`}>
