@@ -2,6 +2,7 @@ import MainLayout from "../../components/MainLayout/MainLayout";
 import Home from "../../mockups/Home/Home";
 import LoginPage from "../../mockups/LoginPage/LoginPage";
 import MusicStore from "../../mockups/MusicStore/MusicStore";
+import ProfileCard from "../../mockups/ProfileCard/ProfileCard";
 import ProfileView from "../../mockups/ProfileView/ProfileView";
 import IRoute from "./IRoute";
 
@@ -41,6 +42,17 @@ const ROUTES: IRoute[] = [{
         path: '',
         name: "Profile view",
         component: ProfileView,
+        exact: true,
+    }]
+}, {
+    path: '/profile-card',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "Profile card",
+        component: ProfileCard,
         exact: true,
     }]
 }]
