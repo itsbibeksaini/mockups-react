@@ -46,11 +46,11 @@ class MusicStore extends React.Component<{}, IMusicStoreState>{
         </ul>          
         </header>
 
-        <Box display="flex" flexWrap="wrap" justifyContent="center" style={{width:'900px', margin:'auto'}} className={`${styles.albumArts}`}>
+        <Box display="flex" flexWrap="wrap" justifyContent="center" style={{maxWidth:'900px', margin:'auto'}} className={`${styles.albumArts}`}>
           {
             this.state.albumThumbs.map((album, index) => {
               return(
-                <Box m={1} className={`${styles.album}`}>
+                <Box m={0.5} className={`${styles.album}`}>
                   <div className={`${styles.title}`}>
                     <Typography variant='h6'>{album.title}</Typography>
                   </div>

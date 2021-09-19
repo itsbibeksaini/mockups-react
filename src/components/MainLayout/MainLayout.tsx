@@ -33,11 +33,13 @@ class MainLayout extends React.Component<{}, SavedUser>{
               </header>
               
 
-              <Route path={route.path}
-                    exact={route.exact}
-                    render={(props: RouteComponentProps<any>) => (
-                      <route.component routes={route.childern} {...props} {...route.props}/>
-                    )} />
+              <div className={`${styles.pageWrapper}`}>
+                <Route path={route.path}
+                      exact={route.exact}
+                      render={(props: RouteComponentProps<any>) => (
+                        <route.component routes={route.childern} {...props} {...route.props}/>
+                      )} />
+              </div>
             </div>
           )
         })}
