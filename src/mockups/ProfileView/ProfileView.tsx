@@ -2,8 +2,17 @@
 import { Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
 import styles from './ProfileView.module.scss';
+import IProfileViewState from './state/IProfileViewState';
 
-class ProfileView extends React.Component{
+
+class ProfileView extends React.Component<{}, IProfileViewState>{
+  constructor(props:any){
+    super(props)
+
+    this.state = {
+      value: 0
+    }
+  }
   render(){
     return(
       <div className={`${styles.ProfileView}`}>       
@@ -26,15 +35,23 @@ class ProfileView extends React.Component{
         </div>
  
         <div>
-        <Tabs  centered>
-          <Tab label="Item One" />
+        <Tabs  value={this.state.value} onChange={this.switchTab.bind(this)} centered>
+          <Tab label="Item One" id={`simple-tab-0`}/>
           <Tab label="Item Two" />
           <Tab label="Item Three" />
-        </Tabs>
+        </Tabs>        
+        <div id={`simple-tabpanel-0`}>
 
+        </div>
         </div>
       </div>
     )
+  }
+
+  switchTab(event: React.SyntheticEvent, newValue:number){    
+    this.setState({
+      value: newValue
+    })
   }
 }
 
