@@ -1,6 +1,4 @@
 .ProfileView {
-  
-
   & header {
     height: 280px;
     border-radius: 0.25rem;
@@ -61,5 +59,18 @@
     width: 75%;
     text-align: center;
     margin: auto;
+
+    &:hover{
+      & .edit{
+        display: block;
+      }
+    }
+
+    & .edit {
+      position: absolute;
+      bottom: 0px;
+      right: 10px;
+      display: none;
+    }
   }
 }
