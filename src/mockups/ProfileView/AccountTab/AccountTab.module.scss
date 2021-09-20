@@ -1,0 +1,32 @@
+.AccountTab {
+  padding: 20px 30px;
+  max-width: 800px;
+  margin: auto;
+
+  & .fieldCard {
+    border: 1px solid transparent;
+    width: 220px;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+
+    & header.fieldHeader {
+      color: #999;
+    }
+
+    &:hover {
+      border-color: #ccc;
+      & .fieldEdit {
+        display: block;
+      }
+    }
+
+    & .fieldEdit {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: none;
+    }
+  }
+}

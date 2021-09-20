@@ -3,6 +3,9 @@ import { faCamera, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, IconButton, Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
+import AccountTab from './AccountTab/AccountTab';
+import HistoryTab from './HistoryTab/HistoryTab';
+import PermissionsTab from './PermissionsTab/PermissionsTab';
 import styles from './ProfileView.module.scss';
 import IProfileViewState from './state/IProfileViewState';
 
@@ -18,7 +21,7 @@ class ProfileView extends React.Component<{}, IProfileViewState>{
   render(){
     return(
       <div className={`${styles.ProfileView}`}>       
-        <header>
+        <header className={`${styles.profileCover}`}>
           <div className={`${styles.profileIcon}`}>
               <span className={`${styles.initials}`}>JD</span>
               <div className={`${styles.uploadIcon}`}>
@@ -49,18 +52,33 @@ class ProfileView extends React.Component<{}, IProfileViewState>{
         </div>
  
         <div>
-        <Tabs  value={this.state.value} onChange={this.switchTab.bind(this)} centered>
-          <Tab label="Account" id={`simple-tab-0`}/>
-          <Tab label="Permissions" />
-          <Tab label="History" />
-        </Tabs>        
-        <div id={`simple-tabpanel-0`}>
+          <Tabs  value={this.state.value} onChange={this.switchTab.bind(this)} centered>
+            <Tab label="Account" id={`simple-tab-0`}/>
+            <Tab label="Permissions" />
+            <Tab label="History" />
+          </Tabs>
 
-        </div>
+          {( () => {
+            if(this.state.value === 0)
+              return (
+                <AccountTab />
+              )
+            else if( this.state.value === 1)
+              return (
+                <PermissionsTab />
+              )
+            else if (this.state.value === 2)
+              return (
+                <HistoryTab />
+              )
+          }
+          )()}
+          
         </div>
       </div>
     )
   }
+
 
   switchTab(event: React.SyntheticEvent, newValue:number){    
     this.setState({
