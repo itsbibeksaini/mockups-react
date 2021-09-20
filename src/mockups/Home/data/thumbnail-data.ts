@@ -2,6 +2,7 @@ import IThumbnail from "../state/IThumbnail";
 import loginpage from '../../../assets/thumbs/loginpage.png'
 import musicstore from '../../../assets/thumbs/musicstore.png'
 import profileview from '../../../assets/thumbs/profile-view.png'
+import profilcard from '../../../assets/thumbs/profile-card.png'
 
 export const THUMBNAIL_DATA:IThumbnail[] = [{
     image: loginpage,
@@ -16,7 +17,7 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
     routerLink: '/profile-view',
     size:''
 }, {
-    image: '',
+    image: profilcard,
     routerLink: '/profile-card',
     size:''
 }]
