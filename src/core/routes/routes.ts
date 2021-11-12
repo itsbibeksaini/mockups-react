@@ -2,6 +2,7 @@ import MainLayout from "../../components/MainLayout/MainLayout";
 import Home from "../../mockups/Home/Home";
 import LoginPage from "../../mockups/LoginPage/LoginPage";
 import MusicStore from "../../mockups/MusicStore/MusicStore";
+import OnboardingFlow from "../../mockups/OnboardingFlow/OnboardingFlow";
 import ProfileCard from "../../mockups/ProfileCard/ProfileCard";
 import ProfileView from "../../mockups/ProfileView/ProfileView";
 import IRoute from "./IRoute";
@@ -53,6 +54,17 @@ const ROUTES: IRoute[] = [{
         path: '',
         name: "Profile card",
         component: ProfileCard,
+        exact: true,
+    }]
+}, {
+    path: '/onboarding',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "Onboarding",
+        component: OnboardingFlow,
         exact: true,
     }]
 }]
