@@ -2,8 +2,14 @@ import { Button, Typography } from '@mui/material';
 import React from 'react';
 import styles from './GetStarted.module.scss';
 import onboard from '../../../assets/illustrations/onboard.svg';
+import IOnboardingProps from '../prop/IOnboardingProps';
 
-class GetStarted extends React.Component {
+class GetStarted extends React.Component<IOnboardingProps, {}> {
+
+  constructor(props: IOnboardingProps) {
+    super(props);
+  }
+
   render() {
     return (
       <div style={{padding:'20px 30px', textAlign:'center'}}>
@@ -15,7 +21,7 @@ class GetStarted extends React.Component {
           <Typography variant="body1" gutterBottom>We are here to help you get started with your new account. We will guide you through the process and we will be there for you if you need any help.</Typography>
         </div> 
         <div>
-          <Button variant="contained" color="primary" style={{marginTop:'20px'}}>Let's get started</Button>
+          <Button variant="contained" color="primary" style={{marginTop:'20px'}} onClick={() => this.props.displayPage(1)}>Let's get started</Button>
         </div>
       </div>
     );

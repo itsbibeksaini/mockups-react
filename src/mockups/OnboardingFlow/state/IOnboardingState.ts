@@ -1,6 +1,6 @@
 interface IOnboardingState {
     activeStep: number;
-    skipped: Set<number>;
+    completed: Set<number>;
 }
 
 export default IOnboardingState;
