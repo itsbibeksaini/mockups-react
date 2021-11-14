@@ -43,7 +43,7 @@ export class OnboardingFlow extends React.Component<{}, IOnboardingState> {
   render() {
     return (
       <Box sx={{ width: '100%' }} style={{padding:'10px 15px', boxSizing:'border-box'}}>
-          <Stepper nonLinear activeStep={this.state.activeStep}>
+          <Stepper activeStep={this.state.activeStep}>
             {
               this.steps.map((label, index) => {
                 return (
@@ -59,8 +59,8 @@ export class OnboardingFlow extends React.Component<{}, IOnboardingState> {
           {
             {
               0: <GetStarted displayPage = {this.displayPage}/>,
-              1: <SendCode />,
-              2: <VerifyAccount />,
+              1: <SendCode displayPage = {this.displayPage}/>,
+              2: <VerifyAccount displayPage = {this.displayPage}/>,
               3: <ChangePassword />,
               4: <Finish />
             }[this.state.activeStep]

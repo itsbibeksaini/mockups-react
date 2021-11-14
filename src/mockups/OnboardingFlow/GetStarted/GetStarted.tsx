@@ -14,7 +14,7 @@ class GetStarted extends React.Component<IOnboardingProps, {}> {
     return (
       <div style={{padding:'20px 30px', textAlign:'center'}}>
         <Typography variant="h3" gutterBottom>Welcome John Doe</Typography>
-        <img src={onboard} alt="Onboarding flow" style={{width:'500px'}} />
+        <img src={onboard} alt="Onboarding flow" style={{width:'400px'}} />
 
         <div>
           <Typography variant="h4" gutterBottom>We are so excited to have you onboard</Typography>
