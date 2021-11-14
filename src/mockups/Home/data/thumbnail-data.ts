@@ -4,6 +4,8 @@ import musicstore from '../../../assets/thumbs/musicstore.png'
 import profileview from '../../../assets/thumbs/profile-view.png'
 import profilcard from '../../../assets/thumbs/profile-card.png'
 import onboarding from '../../../assets/thumbs/onboarding.png'
+import settings from '../../../assets/thumbs/settings.png'
+
 
 export const THUMBNAIL_DATA:IThumbnail[] = [{
     image: loginpage,
@@ -24,5 +26,9 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
 }, {
     image: onboarding,
     routerLink: '/onboarding',
+    size:''
+}, {
+    image: settings,
+    routerLink: '/settings',
     size:''
 }]

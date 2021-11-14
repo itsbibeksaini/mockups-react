@@ -5,6 +5,7 @@ import MusicStore from "../../mockups/MusicStore/MusicStore";
 import OnboardingFlow from "../../mockups/OnboardingFlow/OnboardingFlow";
 import ProfileCard from "../../mockups/ProfileCard/ProfileCard";
 import ProfileView from "../../mockups/ProfileView/ProfileView";
+import Settings from "../../mockups/Settings/Settings";
 import IRoute from "./IRoute";
 
 const ROUTES: IRoute[] = [{
@@ -65,6 +66,17 @@ const ROUTES: IRoute[] = [{
         path: '',
         name: "Onboarding",
         component: OnboardingFlow,
+        exact: true,
+    }]
+}, {
+    path: '/settings',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "Settings",
+        component: Settings,
         exact: true,
     }]
 }]
