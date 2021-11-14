@@ -61,7 +61,7 @@ export class OnboardingFlow extends React.Component<{}, IOnboardingState> {
               0: <GetStarted displayPage = {this.displayPage}/>,
               1: <SendCode displayPage = {this.displayPage}/>,
               2: <VerifyAccount displayPage = {this.displayPage}/>,
-              3: <ChangePassword />,
+              3: <ChangePassword displayPage = {this.displayPage}/>,
               4: <Finish />
             }[this.state.activeStep]
           }
