@@ -23,9 +23,19 @@ export class OnboardingFlow extends React.Component<{}, IOnboardingState> {
     }
   }
 
-  displayPage(index: number){
+  displayPage(index: number, completePage: boolean = false) {
+
+    let currentCompletedSteps = this.state.completed;
+
+    if(completePage)
+      currentCompletedSteps.add(this.state.activeStep)
+
+    if(this.state.completed.has(index))
+      return
+      
     this.setState({
       activeStep: index,
+      completed: currentCompletedSteps
     })
     
   }

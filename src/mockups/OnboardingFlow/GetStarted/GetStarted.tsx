@@ -21,7 +21,7 @@ class GetStarted extends React.Component<IOnboardingProps, {}> {
           <Typography variant="body1" gutterBottom>We are here to help you get started with your new account. We will guide you through the process and we will be there for you if you need any help.</Typography>
         </div> 
         <div>
-          <Button variant="contained" color="primary" style={{marginTop:'20px'}} onClick={() => this.props.displayPage(1)}>Let's get started</Button>
+          <Button variant="contained" color="primary" style={{marginTop:'20px'}} onClick={() => this.props.displayPage(1, true)}>Let's get started</Button>
         </div>
       </div>
     );
