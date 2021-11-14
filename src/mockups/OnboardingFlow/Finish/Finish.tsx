@@ -8,7 +8,7 @@ class Finish extends React.Component {
     return (
       <div style={{textAlign:'center', padding:'20px 30px'}}>
         <div>
-          <Typography variant="h4">Onboarding complete</Typography>
+          <Typography variant="h3">Onboarding complete</Typography>
           <Typography variant="body1">Welcome John Doe your onboarding is complete</Typography>
         </div>
 
