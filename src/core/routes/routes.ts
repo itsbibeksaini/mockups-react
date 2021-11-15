@@ -1,5 +1,6 @@
 import MainLayout from "../../components/MainLayout/MainLayout";
 import Home from "../../mockups/Home/Home";
+import InvoiceManagerDashboard from "../../mockups/InvoiceManagerDashboard/InvoiceManagerDashboard";
 import LoginPage from "../../mockups/LoginPage/LoginPage";
 import MusicStore from "../../mockups/MusicStore/MusicStore";
 import OnboardingFlow from "../../mockups/OnboardingFlow/OnboardingFlow";
@@ -77,6 +78,17 @@ const ROUTES: IRoute[] = [{
         path: '',
         name: "Settings",
         component: Settings,
+        exact: true,
+    }]
+}, {
+    path: '/invoices',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "Invoices",
+        component: InvoiceManagerDashboard,
         exact: true,
     }]
 }]

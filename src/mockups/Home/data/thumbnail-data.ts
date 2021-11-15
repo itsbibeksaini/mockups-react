@@ -31,4 +31,8 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
     image: settings,
     routerLink: '/settings',
     size:''
+}, {
+    image: "",
+    routerLink: '/invoices',
+    size:''
 }]
