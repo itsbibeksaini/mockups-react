@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './InvoiceManagerDashboard.module.scss';
 
-const InvoiceManagerDashboard = () => (
-  <div className={styles.InvoiceManagerDashboard}>
-    InvoiceManagerDashboard Component
-  </div>
-);
+class InvoiceManagerDashboard extends React.Component {
+  public render() {
+    return (
+      <div className={styles.InvoiceManagerDashboard}>
+        InvoiceManagerDashboard
+      </div>
+    );
+  }
+}
 
 export default InvoiceManagerDashboard;
