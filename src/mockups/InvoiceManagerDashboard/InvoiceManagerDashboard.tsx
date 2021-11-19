@@ -1,4 +1,4 @@
-import { Table, Typography } from '@mui/material';
+import { Checkbox, FormControlLabel, Table, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import styles from './InvoiceManagerDashboard.module.scss';
@@ -10,7 +10,7 @@ class InvoiceManagerDashboard extends React.Component {
         <Box>
           <table className={`${styles.invoicesTable}`}>
             <thead>
-              <th style={{width:'25%', paddingLeft:'2rem'}}>
+              <th style={{width:'30%', paddingLeft:'2rem'}}>
                 Name
               </th>
               <th style={{width:'15%'}}>
@@ -22,7 +22,7 @@ class InvoiceManagerDashboard extends React.Component {
               <th style={{width:'15%'}}>
                 Issued on
               </th>
-              <th style={{width:'15%'}}>
+              <th style={{width:'10%'}}>
                 Amount
               </th>
               <th style={{width:'10%', textAlign:'center'}}>
@@ -64,7 +64,7 @@ class InvoiceManagerDashboard extends React.Component {
                   <Typography variant="body2">January 1, 2020</Typography>
                 </td>
                 <td>
-                  <Typography variant="body2">$1,000.00</Typography>
+                  <Typography variant="body2">$10,000,000.00</Typography>
                 </td>
                 <td>
                   <div style={{border:'1px solid', padding:'0.5rem', textAlign:'center', borderRadius:'0.25rem', background:'#4CAF50'}}>
