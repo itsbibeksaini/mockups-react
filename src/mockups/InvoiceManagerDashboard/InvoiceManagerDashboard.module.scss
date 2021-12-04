@@ -10,6 +10,15 @@
       }
       text-align: left;
 
+      &.actions {
+        text-align: center;
+
+        & .actionIcon {
+          font-size: 20px;
+          display: none;
+        }
+      }
+
       & .initials {
         color: #1b1c1e;
         font-size: 20px; /* 50% of parent */
@@ -28,6 +37,10 @@
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
           0 15px 12px rgba(0, 0, 0, 0.22) !important;
         color: #fff;
+
+        & .actionIcon {
+          display: inline;
+        }
       }
     }
   }

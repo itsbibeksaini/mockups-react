@@ -1,5 +1,8 @@
+import { faAccessibleIcon } from '@fortawesome/free-brands-svg-icons';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Checkbox, FormControlLabel, Table, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box, textAlign } from '@mui/system';
 import React from 'react';
 import styles from './InvoiceManagerDashboard.module.scss';
 
@@ -71,8 +74,8 @@ class InvoiceManagerDashboard extends React.Component {
                     <Typography variant="body2">Paid</Typography>
                   </div>
                 </td>
-                <td>
-
+                <td className={`${styles.actions}`}>
+                  <FontAwesomeIcon icon={faEllipsisV} className={`${styles.actionIcon}`}/>
                 </td>
               </tr>
               
