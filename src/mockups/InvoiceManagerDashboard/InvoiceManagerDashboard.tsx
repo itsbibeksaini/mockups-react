@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Checkbox, FormControlLabel, Table, Typography } from '@mui/material';
 import { Box, textAlign } from '@mui/system';
 import React from 'react';
+import Status from './constants/status';
 import INVOICES from './data/invoices';
 import styles from './InvoiceManagerDashboard.module.scss';
 import IInvoicesState from './state/IInvoicesState';
@@ -24,7 +25,7 @@ class InvoiceManagerDashboard extends React.Component<{}, IInvoicesState> {
         <Box>
           <table className={`${styles.invoicesTable}`}>
             <thead>
-              <th style={{width:'30%', paddingLeft:'2rem'}}>
+              <th style={{width:'35%', paddingLeft:'2rem'}}>
                 Client
               </th>
               <th style={{width:'10%'}}>
@@ -39,7 +40,7 @@ class InvoiceManagerDashboard extends React.Component<{}, IInvoicesState> {
               <th style={{width:'10%', textAlign:'center'}}>
                 Status
               </th>
-              <th style={{width:'15%', textAlign:'center'}}>
+              <th style={{width:'10%', textAlign:'center'}}>
               </th>
               <th style={{width:'5%'}}>
               </th>
@@ -47,6 +48,8 @@ class InvoiceManagerDashboard extends React.Component<{}, IInvoicesState> {
             <tbody>
               {
                 this.state.invoices.map((invoice, index) => {
+                  const disablePrint = invoice.status === Status.PAID;
+
                   return (
                     <tr>
                       <td>
@@ -81,7 +84,8 @@ class InvoiceManagerDashboard extends React.Component<{}, IInvoicesState> {
                         </div>
                       </td>
                       <td style={{textAlign:'center'}}>
-                        <Button variant="contained" color="primary" size="small" style={{marginRight:'0.5rem', padding:'0.75rem'}}>
+                        
+                        <Button disabled={disablePrint}  variant="contained" color="primary" size="small" style={{marginRight:'0.5rem', padding:'0.75rem'}}>
                           <FontAwesomeIcon icon={faPrint} style={{fontSize:'21px', marginRight:'0.5rem'}}/>
                           Print
                         </Button>
