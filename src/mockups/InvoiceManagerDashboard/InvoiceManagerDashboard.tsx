@@ -50,6 +50,10 @@ class InvoiceManagerDashboard extends React.Component<{}, IInvoicesState> {
                 this.state.invoices.map((invoice, index) => {
                   const disablePrint = invoice.status === Status.PAID;
 
+                  let formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',});
+
                   return (
                     <tr>
                       <td>
@@ -66,7 +70,7 @@ class InvoiceManagerDashboard extends React.Component<{}, IInvoicesState> {
                         </Box>
                       </td>
                       <td>
-                        <Typography variant="body2">${invoice.amount}</Typography>
+                        <Typography variant="body2">{ formatter.format(invoice.amount) }</Typography>
                       </td>
                       <td>
                         <Typography variant="body2">
