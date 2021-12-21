@@ -5,6 +5,7 @@ import profileview from '../../../assets/thumbs/profile-view.png'
 import profilcard from '../../../assets/thumbs/profile-card.png'
 import onboarding from '../../../assets/thumbs/onboarding.png'
 import settings from '../../../assets/thumbs/settings.png'
+import invoiceDashboard from '../../../assets/thumbs/invoiceDashboard.png'
 
 
 export const THUMBNAIL_DATA:IThumbnail[] = [{
@@ -32,7 +33,7 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
     routerLink: '/settings',
     size:''
 }, {
-    image: "",
+    image: invoiceDashboard,
     routerLink: '/invoices',
     size:''
 }]
