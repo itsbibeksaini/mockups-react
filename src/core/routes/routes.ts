@@ -7,6 +7,7 @@ import OnboardingFlow from "../../mockups/OnboardingFlow/OnboardingFlow";
 import ProfileCard from "../../mockups/ProfileCard/ProfileCard";
 import ProfileView from "../../mockups/ProfileView/ProfileView";
 import Settings from "../../mockups/Settings/Settings";
+import TaskBoards from "../../mockups/TaskBoards/TaskBoards";
 import IRoute from "./IRoute";
 
 const ROUTES: IRoute[] = [{
@@ -99,7 +100,7 @@ const ROUTES: IRoute[] = [{
     childern: [{
         path: '',
         name: "TaskBoards",
-        component: InvoiceManagerDashboard,
+        component: TaskBoards,
         exact: true,
     }]
 }]
