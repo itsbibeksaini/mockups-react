@@ -91,6 +91,17 @@ const ROUTES: IRoute[] = [{
         component: InvoiceManagerDashboard,
         exact: true,
     }]
+}, {
+    path: '/task-boards',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "TaskBoards",
+        component: InvoiceManagerDashboard,
+        exact: true,
+    }]
 }]
 
 export default ROUTES
