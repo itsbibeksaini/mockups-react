@@ -5,6 +5,7 @@ import LoginPage from "../../mockups/LoginPage/LoginPage";
 import MusicStore from "../../mockups/MusicStore/MusicStore";
 import OnboardingFlow from "../../mockups/OnboardingFlow/OnboardingFlow";
 import ProfileCard from "../../mockups/ProfileCard/ProfileCard";
+import ProfilesDashboard from "../../mockups/ProfilesDashboard/ProfilesDashboard";
 import ProfileView from "../../mockups/ProfileView/ProfileView";
 import Settings from "../../mockups/Settings/Settings";
 import TaskBoards from "../../mockups/TaskBoards/TaskBoards";
@@ -101,6 +102,17 @@ const ROUTES: IRoute[] = [{
         path: '',
         name: "TaskBoards",
         component: TaskBoards,
+        exact: true,
+    }]
+}, {
+    path: '/profiles',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "Profiles",
+        component: ProfilesDashboard,
         exact: true,
     }]
 }]

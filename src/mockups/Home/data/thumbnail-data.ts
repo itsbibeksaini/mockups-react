@@ -40,4 +40,8 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
     image: "",
     routerLink: '/task-boards',
     size:''
+}, {
+    image: "",
+    routerLink: '/profiles',
+    size:''
 }]
