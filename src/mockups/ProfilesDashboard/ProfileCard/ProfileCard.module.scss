@@ -1,6 +1,5 @@
 .profileCardWrapper {
   position: relative;
-  border: 1px solid red;
   width: 280px;
 
   .profileCard {
@@ -17,7 +16,6 @@
       position: absolute;
       left: -10px;
       right: -10px;
-      top: -10px;
       z-index: 1;
 
       & .gearOption {

@@ -5,7 +5,7 @@ import IRoute from '../../core/routes/IRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import SavedUser from '../../mockups/LoginPage/state/ISavedUser';
-import { Card } from '@mui/material';
+import { Box, Card } from '@mui/material';
 class MainLayout extends React.Component<{}, SavedUser>{
 
   routes: IRoute[];
@@ -23,24 +23,24 @@ class MainLayout extends React.Component<{}, SavedUser>{
 
         {this.routes.map((route, index) => {                    
           return (
-            <div key={index}>            
-              <header className={'padding2030'} style={{paddingBottom:'0'}}>
+            <Box display="flex" flexDirection="column" key={index} style={{height:'100%'}}>            
+              <Box className={'padding2030'} style={{paddingBottom:'0'}}>
                 <Link to="/">
                   <FontAwesomeIcon icon={faLongArrowAltLeft} style={{fontSize:'28px', color:'#000'}} className={'cursor-pointer'} />  
                 </Link>
                 <h2 style={{margin:0}}>{route.name}</h2>
                 <hr/>
-              </header>
+              </Box>
               
 
-              <div className={`${styles.pageWrapper}`}>
+              <Box className={`${styles.pageWrapper}`} sx={{ flexGrow: 1 }}>
                 <Route path={route.path}
                       exact={route.exact}
                       render={(props: RouteComponentProps<any>) => (
                         <route.component routes={route.childern} {...props} {...route.props}/>
                       )} />
-              </div>
-            </div>
+              </Box>
+            </Box>
           )
         })}
           
