@@ -1,0 +1,21 @@
+.pannelOverlay {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  border-radius: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.newProfilePannel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 420px;
+  background-color: #f5f5f5;
+  border-radius: 0.25rem;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+        0 15px 12px rgba(0, 0, 0, 0.22) !important;
+}

@@ -1,8 +1,9 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Fab, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Fab, Tooltip, Typography } from '@mui/material';
+import { Box, positions } from '@mui/system';
 import React, { FC } from 'react';
+import NewProfilePannel from './NewProfilePannel/NewProfilePannel';
 import ProfileCard from './ProfileCard/ProfileCard';
 import styles from './ProfilesDashboard.module.scss';
 
@@ -11,20 +12,28 @@ class ProfilesDashboard extends React.Component{
     return(
       <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center' className={styles.ProfilesDashboard}>
         <ProfileCard>
-
         </ProfileCard>
         <ProfileCard>
-
         </ProfileCard>
 
-        <div style={{ position:'absolute', bottom:'10px', right:'10px'}}>
-          <Fab color='primary'>
-            <FontAwesomeIcon icon={faPlus} />
-          </Fab>  
-        </div>
 
+        <NewProfilePannel>
+          
+        </NewProfilePannel>
+
+        <div style={{ position:'absolute', bottom:'10px', right:'10px'}}>
+          <Tooltip title="Create new profile" arrow placement='top'>
+            <Fab color='primary' onClick={this.createNewProfile}>
+              <FontAwesomeIcon icon={faPlus} />
+            </Fab>  
+          </Tooltip>
+        </div>
       </Box>
     )
+  }
+
+  createNewProfile(){
+    alert('create new profile');
   }
 }
 
