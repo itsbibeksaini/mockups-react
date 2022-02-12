@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Fab, Tooltip, Typography } from '@mui/material';
 import { Box, positions } from '@mui/system';
 import React, { FC } from 'react';
-import NewProfilePannel from './NewProfilePannel/NewProfilePannel';
+import NewProfilePanel from './NewProfilePannel/NewProfilePanel';
 import ProfileCard from './ProfileCard/ProfileCard';
 import styles from './ProfilesDashboard.module.scss';
 
@@ -17,9 +17,9 @@ class ProfilesDashboard extends React.Component{
         </ProfileCard>
 
 
-        <NewProfilePannel>
-          
-        </NewProfilePannel>
+        <NewProfilePanel>
+
+        </NewProfilePanel>
 
         <div style={{ position:'absolute', bottom:'10px', right:'10px'}}>
           <Tooltip title="Create new profile" arrow placement='top'>

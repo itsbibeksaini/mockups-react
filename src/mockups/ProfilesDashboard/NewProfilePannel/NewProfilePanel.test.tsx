@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NewProfilePannel from './NewProfilePannel';
+import NewProfilePanel from './NewProfilePanel';
 
 it('It should mount', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<NewProfilePannel />, div);
+  ReactDOM.render(<NewProfilePanel />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
