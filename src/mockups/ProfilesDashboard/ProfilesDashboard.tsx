@@ -11,6 +11,9 @@ class ProfilesDashboard extends React.Component{
         <ProfileCard>
 
         </ProfileCard>
+        <ProfileCard>
+
+        </ProfileCard>
       </Box>
     )
   }
