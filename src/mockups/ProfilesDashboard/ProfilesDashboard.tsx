@@ -6,8 +6,21 @@ import React, { FC } from 'react';
 import NewProfilePanel from './NewProfilePannel/NewProfilePanel';
 import ProfileCard from './ProfileCard/ProfileCard';
 import styles from './ProfilesDashboard.module.scss';
+import IProfilesDashboardState from './state/IProfileDashboardState';
 
-class ProfilesDashboard extends React.Component{
+class ProfilesDashboard extends React.Component<{}, IProfilesDashboardState>{
+  constructor(props: any){
+    super(props)
+
+    this.state = {
+      showNewProfilePanel: false
+    }
+
+    this.createNewProfile = this.createNewProfile.bind(this)
+    this.closeNewProfilePanel = this.closeNewProfilePanel.bind(this)
+  }
+
+
   render(){
     return(
       <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center' className={styles.ProfilesDashboard}>
@@ -16,10 +29,9 @@ class ProfilesDashboard extends React.Component{
         <ProfileCard>
         </ProfileCard>
 
-
-        <NewProfilePanel>
-
-        </NewProfilePanel>
+        {
+          this.state.showNewProfilePanel ? <NewProfilePanel closeNewProfilePanel = {this.closeNewProfilePanel} /> : "" 
+        }
 
         <div style={{ position:'absolute', bottom:'10px', right:'10px'}}>
           <Tooltip title="Create new profile" arrow placement='top'>
@@ -33,7 +45,15 @@ class ProfilesDashboard extends React.Component{
   }
 
   createNewProfile(){
-    alert('create new profile');
+    this.setState({
+      showNewProfilePanel: true
+    })
+  }
+
+  closeNewProfilePanel(){
+    this.setState({
+      showNewProfilePanel: false
+    })
   }
 }
 

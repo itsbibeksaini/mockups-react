@@ -18,4 +18,26 @@
   background-color: #f5f5f5;
   border-radius: 0.25rem;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+
+  & .header {
+    text-align: center;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem;
+
+    & .panelClose {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0.25rem;
+    }
+  }
+
+  & .description {
+    padding: 1rem;
+    padding-bottom: 0;
+    & hr {
+      margin-bottom: 0;
+    }
+  }
 }
