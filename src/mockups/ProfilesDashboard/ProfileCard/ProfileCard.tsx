@@ -11,11 +11,10 @@ class ProfileCard extends React.Component{
       return (
         <Box p={1} className={`${styles.profileCardWrapper}`}>
           <Box display="flex" flexDirection="column" className={`${styles.profileCard}`}>
-            <div style={{position:'relative'}}>
+            <div style={{position:'relative'}} className={`${styles.gearOption}`}>
               <IconButton size='small' style={{position:'absolute', right:'-5px', top:'-5px'}}>
                 <FontAwesomeIcon icon={faCog}></FontAwesomeIcon>
               </IconButton>
-              
             </div>
             <Box p={1} display="flex">
               <Box style={{width:'60px', position:'relative'}}>
