@@ -30,9 +30,7 @@
       height: 60px;
       border-radius: 50%;
       border: 1px solid;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      @include vertical-align;
       text-align: center;
 
       & .initials {

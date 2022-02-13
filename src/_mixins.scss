@@ -5,3 +5,9 @@
   position: relative;
   top: calc(#{$height} / 4); /* 25% of parent */
 }
+
+@mixin vertical-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
