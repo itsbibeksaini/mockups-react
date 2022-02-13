@@ -1,5 +1,6 @@
 interface INewProfilePanelState {
-    value: number
+    value: number,
+    language: string
 }
 
 export default INewProfilePanelState;
