@@ -1,6 +1,6 @@
 import { faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Checkbox, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
+import { Button, Checkbox, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { FC } from 'react';
 import styles from './NewProfilePanel.module.scss';
@@ -40,7 +40,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                 <hr/>
               </div>
 
-              <div style={{overflow:'hidden'}}>
+              <div style={{marginBottom:'2.5rem'}}>
               <Tabs value={this.state.value} centered>
                 <Tab label="Account" id={`simple-tab-0`}/>
               </Tabs>
@@ -182,7 +182,11 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                   }
                 }
               )} */}
-            </div>
+              </div>
+
+              <footer>
+                <Button variant="contained" color="primary">Save</Button>
+              </footer>
             </Box>
           </Box>
         </div>
