@@ -2,7 +2,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, IconButton, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './ProfileCard.module.scss';
 
 class ProfileCard extends React.Component{
@@ -20,6 +20,7 @@ class ProfileCard extends React.Component{
             <Box p={1} display="flex">
               <Box style={{width:'60px', position:'relative'}}>
                 <div className={styles.profileIcon}>
+                  <span className={`${styles.initials}`}>JD</span>
                 </div>
               </Box>
               <Box p={1}>

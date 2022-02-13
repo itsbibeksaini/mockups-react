@@ -1,8 +1,8 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Fab, Tooltip, Typography } from '@mui/material';
-import { Box, positions } from '@mui/system';
-import React, { FC } from 'react';
+import { Fab, Tooltip } from '@mui/material';
+import { Box } from '@mui/system';
+import React from 'react';
 import NewProfilePanel from './NewProfilePannel/NewProfilePanel';
 import ProfileCard from './ProfileCard/ProfileCard';
 import styles from './ProfilesDashboard.module.scss';
