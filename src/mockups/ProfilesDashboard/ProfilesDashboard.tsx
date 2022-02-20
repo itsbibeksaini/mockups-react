@@ -1,8 +1,9 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Fab, Tooltip } from '@mui/material';
+import { Fab, Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import empty from '../../assets/illustrations/empty.svg';
 import IProfileCardData from './data/IProfileCardData';
 import NewProfilePanel from './NewProfilePannel/NewProfilePanel';
 import ProfileCard from './ProfileCard/ProfileCard';
@@ -15,11 +16,7 @@ class ProfilesDashboard extends React.Component<{}, IProfilesDashboardState>{
 
     this.state = {
       showNewProfilePanel: false,
-      profileCardData: [{
-        name: 'John Doe',
-        username: 'johndoe',
-        initials: 'JD',
-      }]
+      profileCardData: []
     }
 
 
@@ -34,10 +31,16 @@ class ProfilesDashboard extends React.Component<{}, IProfilesDashboardState>{
       <Box flexDirection="row" flexWrap="wrap" display="flex" justifyContent='center' className={styles.ProfilesDashboard}>
 
         {
-          this.state.profileCardData.length > 0 && 
+          this.state.profileCardData.length > 0 ? 
           this.state.profileCardData.map((profile: IProfileCardData, index: number) => {
             return <ProfileCard key={index} cardData={profile}/>
-          })
+          }) : 
+          <div>
+            <img src={empty} alt="empty" style={{width:'400px'}}/>
+            <div style={{textAlign:'center'}}>
+              <Typography variant='h4'>No profile to view.</Typography>
+            </div>
+          </div>
         }
         
         {
