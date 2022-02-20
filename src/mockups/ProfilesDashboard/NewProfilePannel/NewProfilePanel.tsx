@@ -3,16 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Checkbox, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import IProfileCardData from '../data/IProfileCardData';
 import styles from './NewProfilePanel.module.scss';
+import INewProfilePanelProps from './props/INewProfilePanelProps';
 import INewProfilePanelState from './state/INewProfilePanelState';
 
-interface INewProfilePanelProps {
-  closeNewProfilePanel?: any
-  saveNewProfile?: any
-}
+
 class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfilePanelState>{
 
-  constructor(props: any){
+  constructor(props: INewProfilePanelProps){
     super(props)
 
     this.state = {
@@ -210,8 +209,16 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
       )
   }
 
-  saveNewProfile(){
-    alert(JSON.stringify(this.state.newProfile))
+  saveNewProfile = () => {
+
+    debugger
+    let cardData: IProfileCardData = {
+      username: this.state.newProfile.username,
+      name: this.state.newProfile.first_name + ' ' + this.state.newProfile.last_name,
+      initials: this.state.newProfile.first_name[0] + this.state.newProfile.last_name[0]
+    }
+
+    this.props.saveNewProfile(cardData)
   }
 }
 

@@ -25,13 +25,15 @@ class ProfileCard extends React.Component<IProfileCardProps, {}>{
               </IconButton>
             </div>
             <Box p={1} display="flex">
-              <Box style={{width:'60px', position:'relative'}}>
-                <div className={styles.profileIcon}>
-                  <span className={`${styles.initials}`}>{this.props.cardData?.initials}</span>
+              <Box sx={{width:'60px'}} width={'60px'} style={{position:'relative'}}>
+                <div style={{width:'60px'}}>
+                  <div className={styles.profileIcon}>
+                    <span className={`${styles.initials}`}>{this.props.cardData?.initials}</span>
+                  </div>
                 </div>
               </Box>
-              <Box p={1}>
-                <Typography variant="h4">{this.props.cardData?.name}</Typography>
+              <Box p={1} sx={{width:'80%',}}>
+                <Typography variant="h4" style={{whiteSpace:'nowrap',overflow:'hidden', textOverflow:'ellipsis'}}>{this.props.cardData?.name}</Typography>
                 <Typography variant="subtitle2">@{this.props.cardData?.username}</Typography>
               </Box>
             </Box>
