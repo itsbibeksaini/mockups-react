@@ -3,10 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, IconButton, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import IProfileCardData from '../data/IProfileCardData';
 import styles from './ProfileCard.module.scss';
 
-class ProfileCard extends React.Component{
 
+interface IProfileCardProps {
+  cardData?: IProfileCardData;
+}
+class ProfileCard extends React.Component<IProfileCardProps, {}>{
+
+  constructor(props: IProfileCardProps) {
+    super(props)
+  }
   render(): React.ReactNode {
       return (
         <Box p={1} className={`${styles.profileCardWrapper}`}>
@@ -19,12 +27,12 @@ class ProfileCard extends React.Component{
             <Box p={1} display="flex">
               <Box style={{width:'60px', position:'relative'}}>
                 <div className={styles.profileIcon}>
-                  <span className={`${styles.initials}`}>JD</span>
+                  <span className={`${styles.initials}`}>{this.props.cardData?.initials}</span>
                 </div>
               </Box>
               <Box p={1}>
-                <Typography variant="h4">John Doe</Typography>
-                <Typography variant="subtitle2">@johndoe</Typography>
+                <Typography variant="h4">{this.props.cardData?.name}</Typography>
+                <Typography variant="subtitle2">@{this.props.cardData?.username}</Typography>
               </Box>
             </Box>
           
