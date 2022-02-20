@@ -2,12 +2,13 @@ import { faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Checkbox, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './NewProfilePanel.module.scss';
 import INewProfilePanelState from './state/INewProfilePanelState';
 
 interface INewProfilePanelProps {
   closeNewProfilePanel?: any
+  saveNewProfile?: any
 }
 class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfilePanelState>{
 
@@ -16,7 +17,15 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
 
     this.state = {
       value: 0,
-      language: '',
+      newProfile: {
+        username: '',
+        first_name: '',
+        last_name: '',
+        password:'',
+        confirm_password: '',
+        language: '',
+        email: ''
+      }
     }
   }
   render(): React.ReactNode {
@@ -48,6 +57,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                 <Box sx={{width:'100%'}}>
                   <Box p={1} sx={{ width:'50%' }}>
                     <TextField id="outlined-basic" 
+                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, username: e.target.value}})}
                         label="Username" 
                         variant="outlined" 
                         style={{width:'100%', marginBottom:'0.75rem'}}
@@ -64,6 +74,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                 <Box display={'flex'} sx={{width:'100%'}}>
                   <Box p={1}>
                     <TextField id="outlined-basic" 
+                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, first_name: e.target.value}})}
                         label="First name" 
                         variant="outlined" 
                         style={{width:'100%', marginBottom:'0.75rem'}}
@@ -78,6 +89,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                   </Box>
                   <Box p={1}>
                     <TextField id="outlined-basic" 
+                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, last_name: e.target.value}})}
                         label="Last name" 
                         variant="outlined" 
                         style={{width:'100%', marginBottom:'0.75rem'}}
@@ -95,6 +107,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                 <Box display={'flex'}>
                   <Box p={1}>
                     <TextField id="outlined-basic" 
+                      onChange={(e) => this.setState({newProfile: {...this.state.newProfile, password: e.target.value}})}
                       label="Password"
                       type="password"
                       variant="outlined" 
@@ -110,6 +123,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                   </Box>
                   <Box p={1}>
                     <TextField id="outlined-basic" 
+                      onChange={(e) => this.setState({newProfile: {...this.state.newProfile, confirm_password: e.target.value}})}
                       label="Confirm password"
                       type="password"
                       variant="outlined" 
@@ -135,16 +149,19 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                   <Box p={1} sx={{width:'50%'}}>
                       <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Language</InputLabel>
-                        <Select label="Language" value={this.state.language} id="demo-simple-select" 
-                        labelId="demo-simple-select-label" onChange={this.changeLanguage}>
+                        <Select label="Language" value={this.state.newProfile.language} id="demo-simple-select" 
+                        labelId="demo-simple-select-label" 
+                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, language: e.target.value}})}
+                        >
                           <MenuItem value={'en-US'}>English</MenuItem>
-                          <MenuItem value={'en-US'}>Spanish</MenuItem>
-                          <MenuItem value={'en-US'}>French</MenuItem>
+                          <MenuItem value={'es-ES'}>Spanish</MenuItem>
+                          <MenuItem value={'fr-CA'}>French</MenuItem>
                         </Select>
                       </FormControl>
                   </Box>
                   <Box p={1} sx={{width:'50%'}}>
                     <TextField id="outlined-basic" 
+                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, email: e.target.value}})}
                         label="E-Mail" 
                         variant="outlined" 
                         style={{width:'100%', marginBottom:'0.75rem'}}
@@ -185,7 +202,7 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
               </div>
 
               <footer>
-                <Button variant="contained" color="primary">Save</Button>
+                <Button variant="contained" color="primary" onClick={() => this.saveNewProfile()}>Save</Button>
               </footer>
             </Box>
           </Box>
@@ -193,10 +210,8 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
       )
   }
 
-  changeLanguage = (event: any) => {
-    this.setState({
-      language: event.target.value
-    })  
+  saveNewProfile(){
+    alert(JSON.stringify(this.state.newProfile))
   }
 }
 
