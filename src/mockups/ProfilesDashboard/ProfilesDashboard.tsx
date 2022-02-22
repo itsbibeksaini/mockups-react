@@ -72,8 +72,10 @@ class ProfilesDashboard extends React.Component<{}, IProfilesDashboardState>{
 
   saveNewProfile = (profile: IProfileCardData) => {
     this.setState({
-      profileCardData: [...this.state.profileCardData, profile]
+      profileCardData: [...this.state.profileCardData, profile],
+      showNewProfilePanel: false
     })
+    
   }
   
 }
