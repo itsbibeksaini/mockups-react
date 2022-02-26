@@ -39,6 +39,7 @@
 
       & .initials {
         @include initials(60px);
+        text-transform: uppercase;
       }
     }
   }

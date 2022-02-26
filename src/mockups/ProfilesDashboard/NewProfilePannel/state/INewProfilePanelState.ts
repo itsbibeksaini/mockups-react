@@ -10,7 +10,7 @@ interface INewProfileForm{
     password:string
     confirm_password:string
     language: string,
-    email:string
+    email:string    
     
 }
 

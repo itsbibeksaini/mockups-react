@@ -1,112 +1,86 @@
-import { faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Checkbox, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import React from 'react';
-import IProfileCardData from '../data/IProfileCardData';
+import { faTimes, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, FormControl, FormHelperText, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import IProfileCardData from "../data/IProfileCardData";
 import styles from './NewProfilePanel.module.scss';
-import INewProfilePanelProps from './props/INewProfilePanelProps';
-import INewProfilePanelState from './state/INewProfilePanelState';
+import INewProfilePanelProps from "./props/INewProfilePanelProps";
 
+const  NewProfilePanel: React.FC<INewProfilePanelProps> =(props) => {
 
-class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfilePanelState>{
-
-  constructor(props: INewProfilePanelProps){
-    super(props)
-
-    this.state = {
-      value: 0,
-      newProfile: {
-        username: '',
-        first_name: '',
-        last_name: '',
-        password:'',
-        confirm_password: '',
-        language: '',
-        email: ''
-      }
+  const[value, setValue] = useState(0)
+  const { register, handleSubmit, formState: {errors} }  = useForm({
+    defaultValues: {
+      username: "",
+      firstName: "",
+      lastName: "",
+      password: "",
+      confirmPassword: "",
+      language: "",
+      email: "",
     }
+  })
+  const saveNewProfile = (data: any) => {
+    let cardData: IProfileCardData = {
+      username: data.username,
+      name: data.firstName + ' ' + data.lastName,
+      initials: data.firstName[0] + data.lastName[0]
+    }
+
+    props.saveNewProfile(cardData)
   }
-  render(): React.ReactNode {
-      return (
-        <div className={`${styles.panelOverlay}`}>
-           <Box display={'flex'} flexDirection="column" className={[`${styles.newProfilePanel}`].join()}>
-            <header className={`${styles.header}`}>
-              <div className={`${styles.panelClose}`}>
-                <IconButton size='small' onClick={this.props.closeNewProfilePanel}>
-                  <FontAwesomeIcon icon={faTimes}/>
-                </IconButton>
-              </div>
-                <Typography variant='h5'>New profile</Typography>
-            </header>
+  
+  return(
+    <div className={`${styles.panelOverlay}`}>
+      <Box display={'flex'} flexDirection="column" className={[`${styles.newProfilePanel}`].join()}>
+        <header className={`${styles.header}`}>
+          <div className={`${styles.panelClose}`}>
+            <IconButton size='small' onClick={props.closeNewProfilePanel}>
+              <FontAwesomeIcon icon={faTimes}/>
+            </IconButton>
+          </div>
+          <Typography variant='h5'>New profile</Typography>
+        </header>
 
-            <Box sx={{flexGrow:1}} style={{overflow:'hidden', overflowY:'auto'}}>
-              <div className={`${styles.description}`}>
-                <Typography variant='body1'>
-                Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </Typography>
-                <hr/>
-              </div>
+        <Box sx={{flexGrow:1}} style={{overflow:'hidden', overflowY:'auto'}}>
+          <div className={`${styles.description}`}>
+            <Typography variant='body1'>
+              Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            </Typography>
+            <hr/>
+          </div>   
 
-              <div style={{marginBottom:'2.5rem'}}>
-              <Tabs value={this.state.value} centered>
-                <Tab label="Account" id={`simple-tab-0`}/>
-              </Tabs>
-              <Grid container style={{padding:'20px 30px', boxSizing:'border-box'}}>
-                <Box sx={{width:'100%'}}>
-                  <Box p={1} sx={{ width:'50%' }}>
-                    <TextField id="outlined-basic" 
-                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, username: e.target.value}})}
-                        label="Username" 
-                        variant="outlined" 
-                        style={{width:'100%', marginBottom:'0.75rem'}}
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
-                            </InputAdornment>
-                          )
-                    }} />
-                  </Box>
+          <div>
+            <Tabs value={value} centered>
+              <Tab label="Account" id={`simple-tab-0`}/>
+            </Tabs>
+          </div>
+
+          <form>
+            <Grid container style={{padding:'20px 30px', boxSizing:'border-box'}}>
+              <Box sx={{width:'100%'}}>
+                <Box p={1} sx={{ width:'50%' }}>                  
+                  <TextField id="outlined-basic"                       
+                    {...(errors.username ? {error: true, helperText: "Enter username"} : {})}                      
+                    label="Username" 
+                    variant="outlined" 
+                    style={{width:'100%', marginBottom:'0.75rem'}}                      
+                    {...register("username", {required: true})}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
+                        </InputAdornment>
+                      )
+                  }} />
                 </Box>
-
-                <Box display={'flex'} sx={{width:'100%'}}>
-                  <Box p={1}>
-                    <TextField id="outlined-basic" 
-                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, first_name: e.target.value}})}
-                        label="First name" 
-                        variant="outlined" 
-                        style={{width:'100%', marginBottom:'0.75rem'}}
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
-                            </InputAdornment>
-                          )
-                        }} 
-                    />
-                  </Box>
-                  <Box p={1}>
-                    <TextField id="outlined-basic" 
-                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, last_name: e.target.value}})}
-                        label="Last name" 
-                        variant="outlined" 
-                        style={{width:'100%', marginBottom:'0.75rem'}}
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
-                            </InputAdornment>
-                          )
-                        }} 
-                    />
-                  </Box>
-                </Box>
-
                 <Box display={'flex'}>
                   <Box p={1}>
                     <TextField id="outlined-basic" 
-                      onChange={(e) => this.setState({newProfile: {...this.state.newProfile, password: e.target.value}})}
+                      {...register("password", {required: true})}                
+                      {...(errors.password ? {error: true, helperText: "Enter password"} : {})}      
                       label="Password"
                       type="password"
                       variant="outlined" 
@@ -122,7 +96,8 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                   </Box>
                   <Box p={1}>
                     <TextField id="outlined-basic" 
-                      onChange={(e) => this.setState({newProfile: {...this.state.newProfile, confirm_password: e.target.value}})}
+                      {...register("confirmPassword", {required: true})}                
+                      {...(errors.confirmPassword ? {error: true, helperText: "Enter confirm password"} : {})}      
                       label="Confirm password"
                       type="password"
                       variant="outlined" 
@@ -137,30 +112,61 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                     />
                   </Box>
                 </Box>
-
-                <Box sx={{width:'100%'}}>
-                  <Box pl={1}>
-                    <FormControlLabel control={<Checkbox/>} label="Show password" />
+                <Box display={'flex'} sx={{width:'100%'}}>
+                  <Box p={1}>
+                    <TextField id="outlined-basic"         
+                      {...register("firstName", {required: true})}                
+                      {...(errors.firstName ? {error: true, helperText: "Enter first name"} : {})}    
+                      label="First name" 
+                      variant="outlined" 
+                      style={{width:'100%', marginBottom:'0.75rem'}}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
+                          </InputAdornment>
+                        )
+                      }} 
+                    />
+                  </Box>
+                  <Box p={1}>
+                    <TextField id="outlined-basic"         
+                      {...register("lastName", {required: true})}                
+                      {...(errors.lastName ? {error: true, helperText: "Enter last name"} : {})}    
+                      label="Last name" 
+                      variant="outlined" 
+                      style={{width:'100%', marginBottom:'0.75rem'}}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
+                          </InputAdornment>
+                        )
+                      }} 
+                    />
                   </Box>
                 </Box>
-
                 <Box display={'flex'} sx={{width:'100%'}}>
                   <Box p={1} sx={{width:'50%'}}>
-                      <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Language</InputLabel>
-                        <Select label="Language" value={this.state.newProfile.language} id="demo-simple-select" 
-                        labelId="demo-simple-select-label" 
-                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, language: e.target.value}})}
-                        >
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                         <Select label="Language" id="demo-simple-select" 
+                          
+                          labelId="demo-simple-select-label" 
+                          {...register("language", {required: true})}                                          
+                          {...(errors.language ? {error: true, helperText: "Select language"} : {})}                              
+                          >
                           <MenuItem value={'en-US'}>English</MenuItem>
                           <MenuItem value={'es-ES'}>Spanish</MenuItem>
                           <MenuItem value={'fr-CA'}>French</MenuItem>
                         </Select>
+                        {errors.language && <FormHelperText error>Select language</FormHelperText>}
                       </FormControl>
                   </Box>
                   <Box p={1} sx={{width:'50%'}}>
                     <TextField id="outlined-basic" 
-                        onChange={(e) => this.setState({newProfile: {...this.state.newProfile, email: e.target.value}})}
+                        {...register("email", {required: true})}                
+                        {...(errors.email ? {error: true, helperText: "Enter e-mail"} : {})}    
                         label="E-Mail" 
                         variant="outlined" 
                         style={{width:'100%', marginBottom:'0.75rem'}}
@@ -174,52 +180,16 @@ class NewProfilePanel extends React.Component<INewProfilePanelProps, INewProfile
                     />
                   </Box>
                 </Box>
-              </Grid>
-              
-              {/* {(
-                () =>{
-                  if(true){
-                    return (
-                      <div>
-                        <TextField id="outlined-basic" 
-                     helperText="test" 
-                     label="Username" 
-                     variant="outlined" 
-                     style={{width:'100%', marginBottom:'0.75rem'}}
-                     InputProps={{
-                       startAdornment: (
-                         <InputAdornment position="start">
-                           <FontAwesomeIcon icon={faUser} style={{fontSize:'21px'}}/>
-                         </InputAdornment>
-                       )
-                     }} />
-                      </div>
-                    )
-                  }
-                }
-              )} */}
-              </div>
-
-              <footer>
-                <Button variant="contained" color="primary" onClick={() => this.saveNewProfile()}>Save</Button>
-              </footer>
-            </Box>
-          </Box>
-        </div>
-      )
-  }
-
-  saveNewProfile = () => {
-
-    debugger
-    let cardData: IProfileCardData = {
-      username: this.state.newProfile.username,
-      name: this.state.newProfile.first_name + ' ' + this.state.newProfile.last_name,
-      initials: this.state.newProfile.first_name[0] + this.state.newProfile.last_name[0]
-    }
-
-    this.props.saveNewProfile(cardData)
-  }
+              </Box>    
+            </Grid>
+          </form>
+          <footer>
+            <Button variant="contained" color="primary" onClick={handleSubmit(saveNewProfile)}>Save</Button>
+          </footer>
+        </Box>        
+      </Box>
+    </div>
+  )
 }
 
 export default NewProfilePanel;

@@ -44,7 +44,7 @@ class ProfilesDashboard extends React.Component<{}, IProfilesDashboardState>{
         }
         
         {
-          this.state.showNewProfilePanel && <NewProfilePanel closeNewProfilePanel = {this.closeNewProfilePanel} saveNewProfile = {this.saveNewProfile} />
+          this.state.showNewProfilePanel && <NewProfilePanel closeNewProfilePanel = {this.closeNewProfilePanel} saveNewProfile = {this.saveNewProfile} />          
         }
 
         <div style={{ position:'absolute', bottom:'10px', right:'10px'}}>
