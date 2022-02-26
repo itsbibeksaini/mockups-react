@@ -4,12 +4,14 @@ import { Button, FormControl, FormHelperText, Grid, IconButton, InputAdornment, 
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import LoadingIndicator from "../../../components/LoadingIndicator/LoadingIndicator";
 import IProfileCardData from "../data/IProfileCardData";
 import styles from './NewProfilePanel.module.scss';
 import INewProfilePanelProps from "./props/INewProfilePanelProps";
 
 const  NewProfilePanel: React.FC<INewProfilePanelProps> =(props) => {
 
+  const [isSaved , setIsSaved] = useState(false);
   const[value, setValue] = useState(0)
   const { register, handleSubmit, formState: {errors} }  = useForm({
     defaultValues: {
@@ -28,8 +30,12 @@ const  NewProfilePanel: React.FC<INewProfilePanelProps> =(props) => {
       name: data.firstName + ' ' + data.lastName,
       initials: data.firstName[0] + data.lastName[0]
     }
+    setIsSaved(true)
 
+    setTimeout(() => {      
     props.saveNewProfile(cardData)
+    }
+    , 3000)
   }
   
   return(
@@ -183,8 +189,8 @@ const  NewProfilePanel: React.FC<INewProfilePanelProps> =(props) => {
               </Box>    
             </Grid>
           </form>
-          <footer>
-            <Button variant="contained" color="primary" onClick={handleSubmit(saveNewProfile)}>Save</Button>
+          <footer>          
+            {isSaved ? <LoadingIndicator></LoadingIndicator> : <Button variant="contained" color="primary" onClick={handleSubmit(saveNewProfile)}>Save</Button>}
           </footer>
         </Box>        
       </Box>
