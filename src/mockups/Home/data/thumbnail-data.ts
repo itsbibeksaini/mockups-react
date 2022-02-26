@@ -1,11 +1,12 @@
+import invoiceDashboard from '../../../assets/thumbs/invoiceDashboard.png';
+import loginpage from '../../../assets/thumbs/loginpage.png';
+import musicstore from '../../../assets/thumbs/musicstore.png';
+import onboarding from '../../../assets/thumbs/onboarding.png';
+import profilcard from '../../../assets/thumbs/profile-card.png';
+import profileview from '../../../assets/thumbs/profile-view.png';
+import profilesDashboard from '../../../assets/thumbs/profilesDashboard.png';
+import settings from '../../../assets/thumbs/settings.png';
 import IThumbnail from "../state/IThumbnail";
-import loginpage from '../../../assets/thumbs/loginpage.png'
-import musicstore from '../../../assets/thumbs/musicstore.png'
-import profileview from '../../../assets/thumbs/profile-view.png'
-import profilcard from '../../../assets/thumbs/profile-card.png'
-import onboarding from '../../../assets/thumbs/onboarding.png'
-import settings from '../../../assets/thumbs/settings.png'
-import invoiceDashboard from '../../../assets/thumbs/invoiceDashboard.png'
 
 
 export const THUMBNAIL_DATA:IThumbnail[] = [{
@@ -41,7 +42,7 @@ export const THUMBNAIL_DATA:IThumbnail[] = [{
     routerLink: '/task-boards',
     size:''
 }, {
-    image: "",
+    image: profilesDashboard,
     routerLink: '/profiles',
     size:''
 }]
