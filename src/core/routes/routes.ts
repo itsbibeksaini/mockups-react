@@ -94,17 +94,6 @@ const ROUTES: IRoute[] = [{
         exact: true,
     }]
 }, {
-    path: '/task-boards',
-    name: "",
-    component: MainLayout,
-    exact: true,
-    childern: [{
-        path: '',
-        name: "TaskBoards",
-        component: TaskBoards,
-        exact: true,
-    }]
-}, {
     path: '/profiles',
     name: "",
     component: MainLayout,
