@@ -1,3 +1,5 @@
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import React from 'react';
 import styles from './TaskBoards.module.scss';
 
@@ -9,7 +11,8 @@ class TaskBoards extends React.Component{
   public render(){
     return(
       <div className={styles.TaskBoards}>
-        test
+        <FullCalendar plugins={[ dayGridPlugin ]}
+        initialView="dayGridMonth"></FullCalendar>
       </div>
     )
   }
