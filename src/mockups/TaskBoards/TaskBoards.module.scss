@@ -1,1 +1,13 @@
-.TaskBoards {}
+.TaskBoards {
+}
+
+.test {
+  background-color: #f44336 !important;
+  padding: 0.7rem;
+  border-bottom-left-radius: 35px !important;
+  border-top-left-radius: 35px !important;
+  border-color: transparent !important;
+
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
