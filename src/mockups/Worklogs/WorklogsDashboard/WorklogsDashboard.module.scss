@@ -1,1 +1,17 @@
-.WorklogsDashboard {}
+.WorklogsDashboard {
+    border: 1px solid;
+    
+
+    & .worklogCard{
+        transition: all 0.2s ease-in-out;
+        background-color: red;
+        width: 200px;
+        height: 200px;
+        border-radius: 0.25rem;
+        cursor: pointer;
+
+        &:hover{
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+        }
+    }
+}
