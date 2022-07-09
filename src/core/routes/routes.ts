@@ -9,6 +9,7 @@ import ProfilesDashboard from "../../mockups/ProfilesDashboard/ProfilesDashboard
 import ProfileView from "../../mockups/ProfileView/ProfileView";
 import Settings from "../../mockups/Settings/Settings";
 import TaskBoards from "../../mockups/TaskBoards/TaskBoards";
+import WorklogsDashboard from "../../mockups/Worklogs/WorklogsDashboard/WorklogsDashboard";
 import IRoute from "./IRoute";
 
 const ROUTES: IRoute[] = [{
@@ -102,6 +103,17 @@ const ROUTES: IRoute[] = [{
         path: '',
         name: "Profiles",
         component: ProfilesDashboard,
+        exact: true,
+    }]
+}, {
+    path: '/worklogs',
+    name: "",
+    component: MainLayout,
+    exact: true,
+    childern: [{
+        path: '',
+        name: "Worklogs",
+        component: WorklogsDashboard,
         exact: true,
     }]
 }]
