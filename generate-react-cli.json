@@ -5,7 +5,7 @@
   "testLibrary": "None",
   "component": {
     "default": {
-      "path": "src/mockups",
+      "path": "src/mockups/Worklogs",
       "withStyle": true,
       "withTest": true,
       "withStory": true,

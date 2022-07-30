@@ -4,14 +4,43 @@
 
     & .worklogCard{
         transition: all 0.2s ease-in-out;
-        background-color: red;
+        background-color: #f6f6f6;
         width: 200px;
         height: 200px;
         border-radius: 0.25rem;
         cursor: pointer;
+        position: relative;
+        padding: 0.25rem;
 
         &:hover{
             box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+
+            & .deleteIcon{
+                display: flex;
+            }
+
+            & .title{
+                background-color: red;
+            }
+        }
+
+        & .title{            
+            position: absolute;
+            padding: 0.5rem;
+            left: 0;
+            right: 0;
+            top: 60%;
+            transform: translateY(-60%);
+            text-decoration: underline;
+        }
+
+        & .deleteIcon{
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+            right: 5px;            
+            top: 5px;            
+            cursor: pointer;                     
+            display: none;
         }
     }
 }
