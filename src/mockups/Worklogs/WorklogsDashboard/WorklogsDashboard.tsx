@@ -4,24 +4,36 @@ import { Fab, IconButton, Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import NewWorklogPanel from '../NewWorklogPanel/NewWorklogPanel';
+import IWorklogState from '../state/IWorklogState';
 import styles from './WorklogsDashboard.module.scss';
 
-interface WorklogsDashboardProps {}
-
-class WorklogsDashboard extends React.Component<WorklogsDashboardProps> {
+class WorklogsDashboard extends React.Component<{}, IWorklogState> {
   
-  constructor(props: WorklogsDashboardProps){
+  constructor(props: any){
     super(props)
+
+    this.state = {
+      showNewWorklogPanel: false,
+    }
   }
+
+  
   
   render() {
     return (
       <Box display="flex" justifyContent='left' className={styles.WorklogsDashboard}>        
         { this.worklog() }
 
+        {/* <NewWorklogPanel /> */}
+
+        {
+          this.state.showNewWorklogPanel && <NewWorklogPanel />          
+        }
+
         <div style={{ position:'absolute', bottom:'10px', right:'10px'}}>
           <Tooltip title="Add worklog" arrow placement='top'>
-            <Fab color='primary'>
+            <Fab color='primary' onClick={this.createNewWorklog}>
               <FontAwesomeIcon icon={faPlus} />
             </Fab>  
           </Tooltip>
@@ -40,11 +52,34 @@ class WorklogsDashboard extends React.Component<WorklogsDashboardProps> {
           </div>
           <ul className={`${styles.timeline}`}>
             <li className={`${styles.event}`}>
-                sdmsdskdjskjdjsdkjdsdasdas
-                sdsad
-                d
-                ad
+                <div style={{padding:'5px 10px'}}>
+                  <Typography variant='h4' style={{borderBottom:'1px solid #999'}}>Title</Typography>
+                  <div className={`${styles.eventTrash}`}>
+                    <IconButton>
+                      <FontAwesomeIcon icon={faTrash} style={{color:'red', fontSize:'18px'}} />
+                    </IconButton>
+                  </div>
+                </div>
+                <div style={{padding:'5px 10px'}}>
+                  <Typography variant='body1'>Lorem ipsum dolor sit amet.</Typography>
+                </div>
             </li>
+            <li className={`${styles.event}`}>
+                <div style={{padding:'5px 10px'}}>
+                  <Typography variant='h4' style={{borderBottom:'1px solid #999'}}>Title</Typography>
+                  <div className={`${styles.eventTrash}`}>
+                    <IconButton>
+                      <FontAwesomeIcon icon={faTrash} style={{color:'red', fontSize:'18px'}} />
+                    </IconButton>
+                  </div>
+                </div>
+                <div style={{padding:'5px 10px'}}>
+                  <Typography variant='body1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  <br></br>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Typography>
+                </div>
+            </li>
+            
           </ul>
           {/* <Typography variant='h4'>Title</Typography>
           <Typography variant='subtitle2'>July 30, 2022</Typography>
@@ -72,6 +107,12 @@ class WorklogsDashboard extends React.Component<WorklogsDashboardProps> {
         </Box>
       </Link>
     )
+  }
+
+  createNewWorklog() {
+    this.setState({
+      showNewWorklogPanel: true
+    })
   }
 }
 

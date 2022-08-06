@@ -41,8 +41,32 @@ $font-text: 'Source Sans Pro', sans-serif;
             margin-bottom: 25px;  
             position: relative;
 
-            padding: 10px 15px;
-            border: 1px solid;
+            padding-left: 0.5rem;
+            // border: 1px solid;
+            line-height: 2.5;
+            // background-color: red;
+            border-radius: $radius;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            background-color: #f6f6f6;
+
+            & .eventTrash{
+                position: absolute;
+                top: 0;
+                right: 5px;
+                display: none;
+            }
+
+            &:hover{
+                background-color: $color-primary;
+                cursor: pointer;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+                // color: $color-light;
+
+                & .eventTrash{
+                    display: block;
+                }
+            }
     
             &:last-of-type { 
                 padding-bottom: 0;
@@ -72,7 +96,7 @@ $font-text: 'Source Sans Pro', sans-serif;
                 height: $dot;
                 width: $dot;
                 content: "";
-                top: 5px;
+                top: 15px;
               }
             }
     }
