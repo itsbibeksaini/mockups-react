@@ -1,6 +1,81 @@
+$background: #212529;
+
+$color-primary: #2196F3;
+$color-light: white;
+$spacing: 50px;
+$radius: 4px;
+
+$date: 120px;
+$dotborder: 4px;
+$dot: 11px;
+$line: 4px;
+
+$font-title: 'Oswald', sans-serif;
+$font-text: 'Source Sans Pro', sans-serif;
+
+
 .WorklogsDashboard {
-    border: 1px solid;
+    // border: 1px solid;
     
+    position: relative;
+    height: 100%;
+
+    & .timeline{
+        border-left: $line solid $color-primary;
+        border-bottom-right-radius: $radius;
+        border-top-right-radius: $radius;    
+
+        margin:10px;
+        // margin-left: 11rem;
+        letter-spacing: 0.5px;   
+        position: relative;
+        line-height: 1.4em;
+        // font-size: 1.03em;   
+        padding: 10px;   
+        list-style: none;
+        text-align: left;  
+        color: $background;
+
+        .event{
+        
+            margin-bottom: 25px;  
+            position: relative;
+
+            padding: 10px 15px;
+            border: 1px solid;
+    
+            &:last-of-type { 
+                padding-bottom: 0;
+                margin-bottom: 0; 
+            }
+        
+            &:before, &:after {
+                position: absolute;
+                display: block;
+                top: 0;
+            }
+    
+            &:before {
+                left: -209px;    
+                content: attr(data-date);
+                text-align: right;
+                width: 186px;
+                text-align: center;            
+    
+              }
+          
+              &:after {
+                box-shadow: 0 0 0 $dotborder rgb(50,150,243);    
+                left: -18px;        
+                background: lighten($background,5%);    
+                border-radius: 50%;  
+                height: $dot;
+                width: $dot;
+                content: "";
+                top: 5px;
+              }
+            }
+    }
 
     & .worklogCard{
         transition: all 0.2s ease-in-out;
