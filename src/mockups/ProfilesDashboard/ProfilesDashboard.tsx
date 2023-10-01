@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Fab, Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import empty from '../../assets/illustrations/empty.svg';
+// import empty from '../../assets/illustrations/empty.svg';
 import IProfileCardData from './data/IProfileCardData';
 import NewProfilePanel from './NewProfilePannel/NewProfilePanel';
 import ProfileCard from './ProfileCard/ProfileCard';
@@ -36,7 +36,7 @@ class ProfilesDashboard extends React.Component<{}, IProfilesDashboardState>{
             return <ProfileCard key={index} cardData={profile}/>
           }) : 
           <div>
-            <img src={empty} alt="empty" style={{width:'400px'}}/>
+            {/* <img src={empty} alt="empty" style={{width:'400px'}}/> */}
             <div style={{textAlign:'center'}}>
               <Typography variant='h4'>No profile to view.</Typography>
             </div>

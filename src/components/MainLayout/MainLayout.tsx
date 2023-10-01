@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, RouteComponentProps, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import styles from './MainLayout.module.scss';
 import IRoute from '../../core/routes/IRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,10 +35,11 @@ class MainLayout extends React.Component<{}, SavedUser>{
 
               <Box className={`${styles.pageWrapper}`} sx={{ flexGrow: 1 }}>
                 <Route path={route.path}
-                      exact={route.exact}
-                      render={(props: RouteComponentProps<any>) => (
-                        <route.component routes={route.childern} {...props} {...route.props}/>
-                      )} />
+                      // exact={route.exact}
+                      // render={(props: RouteComponentProps<any>) => (
+                      //   <route.component routes={route.childern} {...props} {...route.props}/>
+                      // )}
+                       />
               </Box>
             </Box>
           )
