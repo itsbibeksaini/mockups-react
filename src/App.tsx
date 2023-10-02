@@ -12,7 +12,7 @@ export default class App extends React.Component{
           {ROUTES.map((route, index) => {
             return(
               <Route key={index} path={route.path} element={<route.component {...route.props}/>}>
-                {route.childern?.map((childRoute, childIndex) => {
+                {route.children?.map((childRoute, childIndex) => {
                   return (
                     <Route key={childIndex} path={childRoute.path} element={<childRoute.component {...route.props}/>} />
                   )

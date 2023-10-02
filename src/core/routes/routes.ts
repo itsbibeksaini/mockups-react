@@ -21,7 +21,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: "Login",
     },
-    childern: [{
+    children: [{
         path: '',        
         component: LoginPage,
     }]
@@ -31,7 +31,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: 'Music Store'
     },
-    childern: [{
+    children: [{
         path: '',
         component: MusicStore,
     }]
@@ -41,7 +41,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: 'Profile view'
     },
-    childern: [{
+    children: [{
         path: '',        
         component: ProfileView,
     }]
@@ -51,7 +51,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: "Profile card"
     },
-    childern: [{
+    children: [{
         path: '',
         component: ProfileCard,
     }]
@@ -61,7 +61,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: "Onboarding"
     },
-    childern: [{
+    children: [{
         path: '',        
         component: OnboardingFlow,
     }]
@@ -71,7 +71,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: "Settings"
     },
-    childern: [{
+    children: [{
         path: '',        
         component: Settings,
     }]
@@ -81,7 +81,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: "Invoices"
     },
-    childern: [{
+    children: [{
         path: '',
         component: InvoiceManagerDashboard,
     }]
@@ -91,7 +91,7 @@ const ROUTES: IRoute[] = [{
     props: {
         name: "Profiles"
     },
-    childern: [{
+    children: [{
         path: '',
         component: ProfilesDashboard,
     }]
