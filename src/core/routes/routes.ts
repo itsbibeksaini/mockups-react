@@ -13,96 +13,87 @@ import IRoute from "./IRoute";
 
 const ROUTES: IRoute[] = [{
     path: '/',
-    name: "",
     component: Home,
     exact: true
 }, {
     path: '/login',
-    name: "",
     component: MainLayout,
-    exact: true,
-    childern: [{
-        path: '',
+    props: {
         name: "Login",
+    },
+    childern: [{
+        path: '',        
         component: LoginPage,
-        exact: true,
     }]
 }, {
     path: '/music-store',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: 'Music Store'
+    },
     childern: [{
         path: '',
-        name: "Music Store",
         component: MusicStore,
-        exact: true,
     }]
 }, {
     path: '/profile-view',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: 'Profile view'
+    },
     childern: [{
-        path: '',
-        name: "Profile view",
+        path: '',        
         component: ProfileView,
-        exact: true,
     }]
 }, {
     path: '/profile-card',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: "Profile card"
+    },
     childern: [{
         path: '',
-        name: "Profile card",
         component: ProfileCard,
-        exact: true,
     }]
 }, {
     path: '/onboarding',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: "Onboarding"
+    },
     childern: [{
-        path: '',
-        name: "Onboarding",
+        path: '',        
         component: OnboardingFlow,
-        exact: true,
     }]
 }, {
     path: '/settings',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: "Settings"
+    },
     childern: [{
-        path: '',
-        name: "Settings",
+        path: '',        
         component: Settings,
-        exact: true,
     }]
 }, {
     path: '/invoices',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: "Invoices"
+    },
     childern: [{
         path: '',
-        name: "Invoices",
         component: InvoiceManagerDashboard,
-        exact: true,
     }]
 }, {
     path: '/profiles',
-    name: "",
     component: MainLayout,
-    exact: true,
+    props: {
+        name: "Profiles"
+    },
     childern: [{
         path: '',
-        name: "Profiles",
         component: ProfilesDashboard,
-        exact: true,
     }]
 }]
 
